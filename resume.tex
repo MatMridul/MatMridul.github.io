@@ -1,0 +1,181 @@
+%-------------------------
+% Resume in Latex
+% Author : Mridul Mathur
+% Based off of: Jake's Resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+%----------FONT OPTIONS----------
+% serif (Computer Modern default)
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generated pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Mridul Mathur} \\ \vspace{1pt}
+    \small +91 82961 37246 $|$ \href{mailto:mridul.mat@gmail.com}{\underline{mridul.mat@gmail.com}} $|$ 
+    \href{https://www.linkedin.com/in/matmridul}{\underline{LinkedIn}} $|$
+    \href{https://github.com/MatMridul}{\underline{GitHub}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {SRM Institute of Science and Technology}{Chennai, TN}
+      {Bachelor of Technology in Computer Science and Engineering (AI \& ML) -- GPA: 8.53}{Aug. 2024 -- May 2028}
+    \resumeSubheading
+      {Narayana E-Techno School}{Bengaluru, KA}
+      {CBSE Sr. Secondary Schooling}{June 2023 -- Mar. 2024}
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Infinitra Innovations}{Sept. 2025 -- Present}
+      {Intern -- Full Stack Development (AWS Cloud)}{}
+      \resumeItemListStart
+        \resumeItem{Architected containerized cloud ETL pipelines on AWS ECS/Fargate and Lambda ingesting 23,000+ daily agricultural records across 1,289 APMC mandis nationwide.}
+        \resumeItem{Engineered production PostgreSQL schemas and asynchronous REST APIs in FastAPI, optimizing database connection pooling and achieving sub-200ms query latencies.}
+        \resumeItem{Improved application efficiency and API response times using Lambda cold-start mitigation, performance optimization, and CloudWatch monitoring for latency-sensitive workloads.}
+        \resumeItem{Collaborated with product stakeholders on feature requirements, system architecture, implementation, debugging, testing, and technical documentation.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {AWS Student Builder Group @ SRMIST}{June 2026 -- Present}
+      {Associate -- AI \& Machine Learning}{}
+      \resumeItemListStart
+        \resumeItem{Lead a student engineering team delivering software and AI applications from ideation through development and deployment, owning technical direction and delivery quality.}
+        \resumeItem{Drive engineering initiatives against defined technical targets, coordinating implementation, testing, debugging, and delivery across student projects.}
+        \resumeItem{Build agentic systems and LLM applications while mentoring AI/ML members and adopting new technologies to solve technical problems.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{APX IQ} $|$ \emph{Python, FastAPI, PostgreSQL, TimescaleDB, Socket.IO, FastF1, UDP}}{}
+          \resumeItemListStart
+            \resumeItem{Engineered a real-time software platform ingesting EA Sports F1 telemetry over UDP at 60 Hz, supporting F1 2020--2025 packet formats through modular adapters.}
+            \resumeItem{Designed independently runnable ingestion, API, and UI services with Socket.IO streaming and PostgreSQL/TimescaleDB persistence for high-frequency telemetry data.}
+            \resumeItem{Developed performance analysis algorithms for distance alignment, corner detection, lap delta, braking, thermal/ERS analysis, battle prediction, and hardware profiling.}
+            \resumeItem{Integrated FastF1 reference data and implemented AI-generated driver debriefs using an Ollama--Gemini--template fallback architecture.}
+            \resumeItem{Implemented software testing and quality gates covering unit/integration tests, linting, type checking, and production builds.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{ARIA} $|$ \emph{Python, FastAPI, TypeScript, React, Neo4j, Qdrant, Docker}}{}
+          \resumeItemListStart
+            \resumeItem{Architected an autonomous revenue recovery engine analyzing multi-tier payment graphs, achieving 94\% root-cause attribution accuracy (vs 0.0\% baseline) across a 62-test chaos battery.}
+            \resumeItem{Implemented a hybrid retrieval pipeline combining Neo4j graph traversal with Qdrant vector embeddings, filtered via cross-encoder re-ranking to isolate root cause failure vectors.}
+            \resumeItem{Engineered deterministic fallback state machines with 0.0\% unsafe action rates and 99.88\% non-intervention precision, preventing cascading gateway outages.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Python, C++, Java, TypeScript, JavaScript, SQL} \\
+     \textbf{Frameworks}{: FastAPI, Node.js, Express, React, Next.js} \\
+     \textbf{Computer Science}{: Data Structures \& Algorithms, Object-Oriented Programming, Algorithms, Software Engineering, Software Design, Problem Solving} \\
+     \textbf{Systems \& Data}{: PostgreSQL, TimescaleDB, REST APIs, Data Pipelines, Distributed Systems, Real-Time Systems} \\
+     \textbf{Cloud \& Engineering}{: AWS Lambda, S3, API Gateway, CloudWatch, Docker, CI/CD, Software Testing, Monitoring, Observability, Performance Optimization, Reliability}
+    }}
+ \end{itemize}
+
+%-------------------------------------------
+\end{document}

@@ -1,0 +1,3620 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mridul Mathur | AI & Systems Engineer</title>
+  <meta name="description" content="Portfolio of Mridul Mathur — AI & Systems Engineer, Full-Stack Developer specializing in cloud-native AWS architectures, agentic systems, and high-frequency telemetry." />
+
+  <!-- Immediate Theme Initializer (Prevents Flash of Wrong Theme) -->
+  <script>
+    (function() {
+      try {
+        const saved = localStorage.getItem('portfolio-theme');
+        if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Favicon (Monochrome SVG geometric mark) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0a0a'/%3E%3Ctext x='50' y='68' font-size='56' font-family='monospace' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+
+  <!-- Open Graph / Social Metadata -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mridul Mathur | AI & Systems Engineer" />
+  <meta property="og:description" content="Architecting cloud-native distributed backends, agentic LLM reasoning graphs, and real-time telemetry systems with empirical rigor." />
+  <meta property="og:url" content="https://matmridul.github.io/" />
+  <meta property="og:image" content="https://matmridul.github.io/og-preview.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mridul Mathur | AI & Systems Engineer" />
+  <meta name="twitter:description" content="AI & Systems Engineer | Intern @ Infinitra Innovations | Associate @ AWS Student Builder Group SRMIST" />
+  <meta name="twitter:image" content="https://matmridul.github.io/og-preview.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       PORTFOLIO MOTION & DESIGN SYSTEM v1.1
+       Pure Monochrome Identity with Dual Inverted Themes (Light & Dark)
+       ========================================================================== */
+    :root {
+      /* Motion Durations */
+      --duration-micro: 150ms;
+      --duration-interaction: 240ms;
+      --duration-content: 380ms;
+      --duration-cinematic: 750ms;
+
+      /* Motion Easings */
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+      --ease-elastic: cubic-bezier(0.25, 1.25, 0.5, 1);
+
+      /* Typography */
+      --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Grid & Spacing */
+      --max-width: 1200px;
+      --nav-height: 72px;
+      --border-width: 1.5px;
+
+      /* Light Theme (Default: White Background / Black Foreground) */
+      --bg-primary: #ffffff;
+      --bg-subtle: #f8f9fa;
+      --bg-surface: #f1f3f5;
+      --fg-primary: #0a0a0a;
+      --fg-muted: #383838;
+      --fg-subtle: #505050; /* >7.1:1 AAA contrast */
+      --border-dark: #0a0a0a;
+      --border-light: #e0e0e0;
+      --border-hairline: rgba(10, 10, 10, 0.16);
+      --nav-bg: rgba(255, 255, 255, 0.96);
+      --cursor-border: #000000;
+      --cursor-bg: rgba(0, 0, 0, 0.04);
+      --cursor-shadow: rgba(255, 255, 255, 0.9);
+      --cursor-hover-bg: rgba(0, 0, 0, 0.08);
+      --cursor-press-bg: rgba(0, 0, 0, 0.18);
+      --card-spotlight: rgba(0, 0, 0, 0.035);
+    }
+
+    /* Alternate Inverted Theme (Dark: Black Background / White Foreground) */
+    html[data-theme="dark"] {
+      --bg-primary: #0a0a0a;
+      --bg-subtle: #141414;
+      --bg-surface: #1e1e1e;
+      --fg-primary: #ffffff;
+      --fg-muted: #c8c8c8;
+      --fg-subtle: #8e8e8e;
+      --border-dark: #ffffff;
+      --border-light: #282828;
+      --border-hairline: rgba(255, 255, 255, 0.18);
+      --nav-bg: rgba(10, 10, 10, 0.96);
+      --cursor-border: #ffffff;
+      --cursor-bg: rgba(255, 255, 255, 0.05);
+      --cursor-shadow: rgba(0, 0, 0, 0.9);
+      --cursor-hover-bg: rgba(255, 255, 255, 0.12);
+      --cursor-press-bg: rgba(255, 255, 255, 0.22);
+      --card-spotlight: rgba(255, 255, 255, 0.08);
+    }
+
+    /* PREFERS REDUCED MOTION OVERRIDES (WCAG 2.2.2 & 2.3.3) */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .kinetic-word,
+      .kinetic-line,
+      .reveal,
+      .hero-telemetry,
+      .reveal-on-scroll,
+      .section-divider {
+        opacity: 1 !important;
+        transform: none !important;
+        clip-path: none !important;
+        transition: none !important;
+      }
+      .section-divider {
+        transform: scaleX(1) !important;
+      }
+    }
+
+    /* Manual reduced-motion mode toggle override */
+    html.motion-reduced *,
+    html.motion-reduced *::before,
+    html.motion-reduced *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    html.motion-reduced .cursor-ring {
+      display: none !important;
+    }
+
+    html.motion-reduced .reveal-on-scroll {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    html.motion-reduced .section-divider {
+      transform: scaleX(1) !important;
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background: var(--bg-primary);
+      color: var(--fg-primary);
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-primary);
+      color: var(--fg-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      transition: background-color var(--duration-interaction) var(--ease-out-expo),
+                  color var(--duration-interaction) var(--ease-out-expo);
+    }
+
+    ::selection {
+      background: var(--fg-primary);
+      color: var(--bg-primary);
+    }
+
+    /* Strict Accessible Keyboard Focus Rings (WCAG 2.4.7 Focus Visible) */
+    :focus-visible {
+      outline: 2px solid var(--fg-primary) !important;
+      outline-offset: 3px !important;
+    }
+
+    a {
+      color: var(--fg-primary);
+      text-decoration: none;
+      transition: opacity var(--duration-micro) var(--ease-out-expo);
+    }
+
+    /* Seamless theme transitions on structural containers */
+    nav, section, footer, .card, .btn-action, .pill, .cert-item, .telemetry-btn,
+    .contact-card-box, .manifesto-sidebar, .skills-filter-header, .section-divider {
+      transition: background-color var(--duration-interaction) var(--ease-out-expo),
+                  color var(--duration-interaction) var(--ease-out-expo),
+                  border-color var(--duration-interaction) var(--ease-out-expo);
+    }
+
+    /* ==========================================================================
+       CONTEXTUAL CURSOR RING & MAGNETIC PHYSICS
+       (Native mouse pointer is ALWAYS fully visible)
+       ========================================================================== */
+    .cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none !important;
+      border-radius: 50%;
+      z-index: 999999;
+      width: 36px;
+      height: 36px;
+      border: 2px solid var(--cursor-border);
+      background-color: var(--cursor-bg);
+      box-shadow: 0 0 0 1px var(--cursor-shadow);
+      will-change: transform, width, height, border-color, background-color, opacity;
+      transform: translate3d(-50%, -50%, 0);
+      opacity: 0;
+      transition: width var(--duration-interaction) var(--ease-out-expo),
+                  height var(--duration-interaction) var(--ease-out-expo),
+                  background-color var(--duration-interaction) var(--ease-out-expo),
+                  border-color var(--duration-interaction) var(--ease-out-expo),
+                  opacity var(--duration-interaction) var(--ease-out-expo);
+    }
+
+    body.is-hovering .cursor-ring {
+      width: 54px;
+      height: 54px;
+      border-color: var(--cursor-border);
+      border-width: 2.5px;
+      background-color: var(--cursor-hover-bg);
+    }
+
+    body.is-pressing .cursor-ring {
+      transform: translate3d(-50%, -50%, 0) scale(0.82);
+      background-color: var(--cursor-press-bg);
+      transition-duration: var(--duration-micro);
+    }
+
+    .cursor-hidden {
+      opacity: 0 !important;
+    }
+
+    [data-magnetic] {
+      display: inline-block;
+      transition: transform var(--duration-interaction) var(--ease-out-expo);
+      will-change: transform;
+    }
+
+    /* Layout Containers */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px;
+      }
+    }
+
+    /* Header & Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: var(--border-width) solid var(--border-dark);
+      transition: transform var(--duration-interaction) var(--ease-out-expo),
+                  background-color var(--duration-interaction) var(--ease-out-expo),
+                  border-color var(--duration-interaction) var(--ease-out-expo);
+    }
+
+    .nav-inner {
+      height: var(--nav-height);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-id {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      min-height: 44px;
+    }
+
+    .brand-mark {
+      width: 14px;
+      height: 14px;
+      background: var(--fg-primary);
+      display: inline-block;
+      transition: transform var(--duration-micro) var(--ease-out-expo),
+                  background-color var(--duration-interaction) var(--ease-out-expo);
+    }
+
+    .brand-id:hover .brand-mark {
+      transform: rotate(45deg);
+    }
+
+    .brand-subtitle {
+      color: var(--fg-subtle);
+      font-size: 0.8rem;
+    }
+
+    .nav-controls-group {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    /* Touch target compliance: min-height 44px for navigation items */
+    .nav-link {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      position: relative;
+      padding: 12px 6px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      color: var(--fg-muted);
+      transition: color var(--duration-micro) var(--ease-out-expo);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--fg-primary);
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: 8px;
+      left: 6px;
+      right: 6px;
+      width: 0;
+      height: 2px;
+      background: var(--fg-primary);
+      transition: width var(--duration-interaction) var(--ease-out-expo),
+                  background-color var(--duration-interaction) var(--ease-out-expo);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: calc(100% - 12px);
+    }
+
+    /* Theme Switcher Button in Header */
+    .nav-theme-btn {
+      background: transparent;
+      border: 1px solid var(--border-dark);
+      color: var(--fg-primary);
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all var(--duration-micro) var(--ease-out-expo);
+    }
+
+    .nav-theme-btn:hover {
+      background: var(--fg-primary);
+      color: var(--bg-primary);
+    }
+
+    @media (max-width: 768px) {
+      .brand-subtitle {
+        display: none;
+      }
+      .nav-links {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-left: 6px;
+        mask-image: linear-gradient(to right, black 85%, transparent 100%);
+      }
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    /* Hero Section */
+    .hero-section {
+      min-height: calc(100vh - var(--nav-height));
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-bottom: var(--border-width) solid var(--border-dark);
+      padding: 44px 0 32px 0;
+      position: relative;
+    }
+
+    /* Hero Telemetry Status Bar */
+    .hero-telemetry {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 18px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      white-space: nowrap;
+      border: var(--border-width) solid var(--border-dark);
+      background: var(--bg-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 36px;
+
+      opacity: 0;
+      transform: translateY(-8px);
+      animation: telemetryEntry var(--duration-content) var(--ease-out-expo) forwards;
+      animation-delay: 100ms;
+    }
+
+    .hero-telemetry::-webkit-scrollbar {
+      display: none;
+    }
+
+    @keyframes telemetryEntry {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .telemetry-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .telemetry-btn {
+      background: transparent;
+      border: 1px solid var(--border-dark);
+      padding: 8px 12px;
+      min-height: 44px;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      cursor: pointer;
+      color: var(--fg-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--duration-micro) var(--ease-out-expo);
+    }
+
+    .telemetry-btn:hover {
+      background: var(--fg-primary);
+      color: var(--bg-primary);
+    }
+
+    .status-pulse {
+      width: 8px;
+      height: 8px;
+      background: var(--fg-primary);
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulseBlink 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulseBlink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.25; transform: scale(0.85); }
+    }
+
+    /* Hero Main Stage */
+    .hero-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-role-badge {
+      display: inline-flex;
+      width: fit-content;
+      max-width: 100%;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg-subtle);
+      margin-bottom: 18px;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: kineticFadeUp var(--duration-interaction) var(--ease-out-expo) forwards;
+      animation-delay: 200ms;
+    }
+
+    /* Kinetic Display Headline */
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 7.5vw, 6.2rem);
+      font-weight: 700;
+      line-height: 0.96;
+      letter-spacing: -0.035em;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+    }
+
+    .headline-row {
+      display: block;
+      overflow: hidden;
+    }
+
+    .kinetic-word {
+      display: inline-block;
+      transform: translateY(115%);
+      opacity: 0;
+      animation: kineticSlideUp var(--duration-cinematic) var(--ease-out-expo) forwards;
+      will-change: transform, opacity;
+    }
+
+    .word-1 { animation-delay: 250ms; }
+    .word-2 { animation-delay: 350ms; }
+    .word-3 { animation-delay: 450ms; }
+    .word-4 { animation-delay: 550ms; }
+
+    @keyframes kineticSlideUp {
+      0% { transform: translateY(115%); opacity: 0; }
+      100% { transform: translateY(0%); opacity: 1; }
+    }
+
+    @keyframes kineticFadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hero Summary & Action Buttons */
+    .hero-summary-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1.2fr;
+      gap: 40px;
+      align-items: end;
+      margin-top: 14px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-light);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: kineticFadeUp var(--duration-content) var(--ease-out-expo) forwards;
+      animation-delay: 650ms;
+    }
+
+    @media (max-width: 860px) {
+      .hero-summary-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    .hero-lead-text {
+      font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+      font-weight: 400;
+      color: var(--fg-primary);
+      line-height: 1.55;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-lead-text strong {
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hero-btn-cluster {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 20px;
+      min-height: 48px;
+      border: var(--border-width) solid var(--border-dark);
+      background: var(--bg-primary);
+      color: var(--fg-primary);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition:
+        background-color var(--duration-interaction) var(--ease-out-expo),
+        color var(--duration-interaction) var(--ease-out-expo),
+        transform var(--duration-micro) var(--ease-out-expo);
+    }
+
+    .btn-action.btn-primary {
+      background: var(--fg-primary);
+      color: var(--bg-primary);
+    }
+
+    .btn-action.btn-primary:hover {
+      background: var(--bg-primary);
+      color: var(--fg-primary);
+      transform: translateY(-2px);
+    }
+
+    .btn-action:hover {
+      background: var(--fg-primary);
+      color: var(--bg-primary);
+      transform: translateY(-2px);
+    }
+
+    .btn-action:active {
+      transform: translateY(0) scale(0.98);
+      transition-duration: var(--duration-micro);
+    }
+
+    .btn-action .arrow {
+      font-family: var(--font-mono);
+      transition: transform var(--duration-interaction) var(--ease-out-expo);
+    }
+
+    .btn-action:hover .arrow {
+      transform: translateX(4px);
+    }
+
+    .hero-links-compact {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--fg-subtle);
+    }
+
+    .hero-links-compact a {
+      color: var(--fg-subtle);
+      border-bottom: 1px solid transparent;
+      padding: 6px 0;
+      transition: all var(--duration-micro) var(--ease-out-expo);
+    }
+
+    .hero-links-compact a:hover {
+      color: var(--fg-primary);
+      border-bottom-color: var(--fg-primary);
+    }
+
+    /* Sections & Architectural Lines */
+    section {
+      padding: 92px 0;
+      position: relative;
+    }
+
+    .section-divider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--border-width);
+      background-color: var(--border-dark);
+      transform-origin: left center;
+      transform: scaleX(0);
+      transition: transform var(--duration-cinematic) var(--ease-out-expo);
+      will-change: transform;
+    }
+
+    .section-divider.is-drawn {
+      transform: scaleX(1);
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+      padding-bottom: 16px;
+      position: relative;
+    }
+
+    .section-header::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--border-light);
+      transform-origin: left center;
+      transform: scaleX(0);
+      transition: transform var(--duration-content) var(--ease-out-expo);
+    }
+
+    section.is-visible .section-header::after {
+      transform: scaleX(1);
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity var(--duration-content) var(--ease-out-expo),
+                  transform var(--duration-content) var(--ease-out-expo);
+      will-change: opacity, transform;
+    }
+
+    .reveal-on-scroll.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    /* Cards Architecture */
+    .card {
+      border: var(--border-width) solid var(--border-dark);
+      padding: 34px 30px;
+      background: var(--bg-primary);
+      position: relative;
+      transform-style: preserve-3d;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform var(--duration-interaction) var(--ease-out-expo),
+                  box-shadow var(--duration-interaction) var(--ease-out-expo),
+                  opacity var(--duration-content) var(--ease-out-expo),
+                  filter var(--duration-content) var(--ease-out-expo),
+                  background-color var(--duration-interaction) var(--ease-out-expo),
+                  border-color var(--duration-interaction) var(--ease-out-expo);
+      will-change: transform;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      width: 7px;
+      height: 7px;
+      background: var(--border-dark);
+      transition: transform var(--duration-micro) var(--ease-out-expo),
+                  background-color var(--duration-interaction) var(--ease-out-expo);
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      right: -3px;
+      width: 7px;
+      height: 7px;
+      background: var(--border-dark);
+      transition: transform var(--duration-micro) var(--ease-out-expo),
+                  background-color var(--duration-interaction) var(--ease-out-expo);
+    }
+
+    .card:hover {
+      box-shadow: 6px 6px 0px var(--border-dark);
+    }
+
+    .card:hover::before {
+      transform: scale(1.5);
+    }
+
+    .card:hover::after {
+      transform: scale(1.5);
+    }
+
+    .card.is-dimmed {
+      opacity: 0.22 !important;
+      filter: grayscale(1) blur(0.5px);
+      pointer-events: none;
+    }
+
+    .card.is-highlighted {
+      box-shadow: 0 0 0 2px var(--border-dark), 6px 6px 0px var(--border-dark);
+    }
+
+    .card-top {
+      margin-bottom: 20px;
+    }
+
+    .card-category-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border: 1px solid var(--border-hairline);
+      background: var(--bg-subtle);
+      color: var(--fg-subtle);
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+    }
+
+    .card-meta {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--fg-subtle);
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      color: var(--fg-muted);
+      font-size: 0.94rem;
+      line-height: 1.6;
+    }
+
+    /* Structured Experience Impact Bullet Points */
+    .impact-list {
+      list-style: none;
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .impact-list li {
+      font-size: 0.92rem;
+      color: var(--fg-muted);
+      line-height: 1.55;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .impact-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--fg-primary);
+      font-weight: 600;
+      font-family: var(--font-mono);
+    }
+
+    /* Tech Stack Badges */
+    .tech-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border-light);
+    }
+
+    .tech-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      color: var(--fg-primary);
+    }
+
+    .card-footer-action {
+      margin-top: 20px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .card-link {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid var(--fg-primary);
+      padding: 6px 2px;
+      min-height: 44px;
+    }
+
+    .card-link:hover {
+      opacity: 0.7;
+    }
+
+    /* Interactive Skills Cross-Filtering */
+    .skills-filter-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding: 12px 18px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+    }
+
+    .skills-filter-status {
+      color: var(--fg-primary);
+    }
+
+    .skills-reset-btn {
+      background: transparent;
+      border: 1px solid var(--border-dark);
+      padding: 6px 12px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      cursor: pointer;
+      color: var(--fg-primary);
+      transition: all var(--duration-micro) var(--ease-out-expo);
+    }
+
+    .skills-reset-btn:hover {
+      background: var(--fg-primary);
+      color: var(--bg-primary);
+    }
+
+    .skills-category {
+      margin-bottom: 30px;
+    }
+
+    .skills-category-title {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--fg-subtle);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      padding: 10px 18px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      border: var(--border-width) solid var(--border-dark);
+      background: var(--bg-primary);
+      color: var(--fg-primary);
+      cursor: pointer;
+      transition: all var(--duration-micro) var(--ease-out-expo);
+      user-select: none;
+    }
+
+    .pill:hover {
+      background: var(--fg-primary);
+      color: var(--bg-primary);
+      transform: translateY(-2px);
+    }
+
+    .pill.is-active {
+      background: var(--fg-primary);
+      color: var(--bg-primary);
+      box-shadow: 3px 3px 0 var(--border-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Certifications Grid */
+    .cert-item {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      padding: 18px 22px;
+      border: var(--border-width) solid var(--border-dark);
+      background: var(--bg-primary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 64px;
+      text-decoration: none;
+      color: inherit;
+      transition: all var(--duration-micro) var(--ease-out-expo);
+    }
+
+    .cert-item:hover {
+      background: var(--bg-subtle);
+      transform: translateY(-2px);
+      box-shadow: 3px 3px 0 var(--border-dark);
+      color: inherit;
+    }
+
+    .cert-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cert-badge {
+      font-size: 0.74rem;
+      color: var(--fg-subtle);
+      border: 1px solid var(--border-hairline);
+      padding: 2px 6px;
+      background: var(--bg-subtle);
+    }
+
+    .cert-verify-tag {
+      font-size: 0.70rem;
+      color: var(--fg-primary);
+      opacity: 0.6;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      transition: opacity var(--duration-micro) var(--ease-out-expo);
+    }
+
+    .cert-item:hover .cert-verify-tag {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    /* About Narrative Layout */
+    .about-manifesto {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    @media (max-width: 860px) {
+      .about-manifesto {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    .manifesto-body {
+      font-size: 1.15rem;
+      color: var(--fg-primary);
+      line-height: 1.7;
+    }
+
+    .manifesto-body p {
+      margin-bottom: 20px;
+    }
+
+    .manifesto-sidebar {
+      border: var(--border-width) solid var(--border-dark);
+      padding: 26px;
+      background: var(--bg-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+
+    .sidebar-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .sidebar-item {
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .sidebar-label {
+      color: var(--fg-subtle);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+    }
+
+    /* Contact Section & 1-Click Copy */
+    .contact-card-box {
+      border: var(--border-width) solid var(--border-dark);
+      padding: 36px 32px;
+      background: var(--bg-subtle);
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-email-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .copy-btn {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 10px 18px;
+      min-height: 44px;
+      border: var(--border-width) solid var(--border-dark);
+      background: var(--bg-primary);
+      color: var(--fg-primary);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all var(--duration-micro) var(--ease-out-expo);
+    }
+
+    .copy-btn:hover {
+      background: var(--fg-primary);
+      color: var(--bg-primary);
+      transform: translateY(-2px);
+    }
+
+    .copy-btn.copied {
+      background: var(--fg-primary);
+      color: var(--bg-primary);
+    }
+
+    /* Footer */
+    footer {
+      padding: 60px 0;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--fg-subtle);
+      border-top: var(--border-width) solid var(--border-dark);
+      background: var(--bg-subtle);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    /* ==========================================================================
+       HAIRLINE SCROLL HORIZON INDICATOR
+       ========================================================================== */
+    .scroll-horizon {
+      position: fixed;
+      top: var(--nav-height);
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--fg-primary);
+      transform-origin: 0% 50%;
+      transform: scaleX(0);
+      z-index: 999;
+      pointer-events: none;
+      will-change: transform;
+      transition: background-color var(--duration-interaction) var(--ease-out-expo);
+    }
+
+    /* ==========================================================================
+       CHAMFER BORDER-BEAM & CARD SPOTLIGHT (Dynamic Pointer Light Tracking)
+       ========================================================================== */
+    .card-spotlight {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: var(--beam-opacity, 0);
+      transition: opacity 160ms var(--ease-out-expo);
+      background: radial-gradient(
+        420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        var(--card-spotlight),
+        transparent 70%
+      );
+      z-index: 1;
+    }
+
+    .card-beam {
+      position: absolute;
+      inset: -1.5px;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: var(--beam-opacity, 0);
+      transition: opacity 140ms var(--ease-out-expo);
+      border: 2px solid transparent;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      background: radial-gradient(
+        280px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        var(--fg-primary) 0%,
+        transparent 75%
+      ) border-box;
+      z-index: 2;
+    }
+
+    /* ==========================================================================
+       COMMAND PALETTE NAV TRIGGER & HERO TRIGGER
+       ========================================================================== */
+    .nav-cmd-btn,
+    .nav-resume-btn {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-dark);
+      color: var(--fg-primary);
+      height: 38px;
+      min-height: 38px;
+      padding: 0 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      transition: all var(--duration-micro) var(--ease-out-expo);
+    }
+
+    .nav-resume-btn .cmd-icon,
+    .nav-cmd-btn .cmd-icon {
+      padding: 1px 5px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      font-size: 0.72rem;
+    }
+
+    .nav-resume-btn:hover,
+    .nav-cmd-btn:hover {
+      background: var(--fg-primary);
+      color: var(--bg-primary);
+    }
+
+    .nav-resume-btn:hover .cmd-icon,
+    .nav-cmd-btn:hover .cmd-icon {
+      background: var(--fg-primary);
+      color: var(--bg-primary);
+      border-color: var(--bg-primary);
+    }
+
+    .hero-cmd-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 16px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-hairline);
+      color: var(--fg-muted);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      cursor: pointer;
+      width: fit-content;
+      margin-top: 6px;
+      transition: all var(--duration-micro) var(--ease-out-expo);
+    }
+
+    .hero-cmd-trigger:hover {
+      background: var(--fg-primary);
+      color: var(--bg-primary);
+      border-color: var(--fg-primary);
+      transform: translateY(-2px);
+    }
+
+    .hero-cmd-trigger kbd {
+      background: var(--bg-primary);
+      color: var(--fg-primary);
+      border: 1px solid var(--border-hairline);
+      padding: 2px 6px;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      border-radius: 2px;
+    }
+
+    .hero-cmd-trigger:hover kbd {
+      background: var(--fg-primary);
+      color: var(--bg-primary);
+      border-color: var(--bg-primary);
+    }
+
+    .hero-cmd-trigger .cmd-badge {
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      margin-left: 6px;
+    }
+
+    .hero-cmd-trigger:hover .cmd-badge {
+      background: var(--fg-primary);
+      color: var(--bg-primary);
+      border-color: var(--bg-primary);
+    }
+
+    /* ==========================================================================
+       CARD TOPOLOGY BLUEPRINT DRAWER
+       ========================================================================== */
+    .card-footer-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 24px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border-hairline);
+    }
+
+    .btn-topology {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-hairline);
+      color: var(--fg-primary);
+      padding: 6px 12px;
+      min-height: 34px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--duration-micro) var(--ease-out-expo);
+    }
+
+    .btn-topology:hover,
+    .btn-topology.is-active {
+      background: var(--fg-primary);
+      color: var(--bg-primary);
+      border-color: var(--fg-primary);
+    }
+
+    .card-topology-drawer {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height var(--duration-content) var(--ease-out-expo),
+                  opacity var(--duration-interaction) var(--ease-out-expo),
+                  margin-top var(--duration-interaction) var(--ease-out-expo);
+      margin-top: 0;
+    }
+
+    .card-topology-drawer.is-open {
+      max-height: 480px;
+      opacity: 1;
+      margin-top: 18px;
+    }
+
+    .topology-pre {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      line-height: 1.35;
+      padding: 14px 16px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-hairline);
+      color: var(--fg-primary);
+      overflow-x: auto;
+      white-space: pre;
+      scrollbar-width: thin;
+    }
+
+    /* ==========================================================================
+       UNIX SYSTEMS TERMINAL & OUTPUT STREAM
+       ========================================================================== */
+    .terminal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999999;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 70px 20px 40px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity var(--duration-micro) var(--ease-out-expo),
+                  visibility var(--duration-micro) var(--ease-out-expo);
+    }
+
+    .terminal-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .terminal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    html[data-theme="dark"] .terminal-backdrop {
+      background: rgba(0, 0, 0, 0.86);
+    }
+
+    .terminal-window {
+      position: relative;
+      width: 100%;
+      max-width: 780px;
+      background: var(--bg-primary);
+      border: var(--border-width) solid var(--border-dark);
+      box-shadow: 14px 14px 0px var(--border-dark);
+      display: flex;
+      flex-direction: column;
+      transform: translateY(-16px) scale(0.98);
+      transition: transform var(--duration-interaction) var(--ease-out-expo);
+      overflow: hidden;
+    }
+
+    .terminal-overlay.is-open .terminal-window {
+      transform: translateY(0) scale(1);
+    }
+
+    .terminal-titlebar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 16px;
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-hairline);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--fg-subtle);
+      user-select: none;
+    }
+
+    .terminal-dots {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .terminal-dot {
+      width: 10px;
+      height: 10px;
+      border: 1px solid var(--border-dark);
+      background: var(--bg-primary);
+      display: inline-block;
+    }
+
+    .terminal-title-text {
+      font-weight: 600;
+      color: var(--fg-primary);
+      letter-spacing: 0.02em;
+    }
+
+    .terminal-title-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .terminal-badge {
+      font-size: 0.68rem;
+      padding: 1px 6px;
+      border: 1px solid var(--border-hairline);
+      color: var(--fg-subtle);
+      background: var(--bg-surface);
+    }
+
+    .terminal-esc-key {
+      font-size: 0.68rem;
+      padding: 1px 5px;
+      border: 1px solid var(--border-hairline);
+      background: var(--bg-primary);
+      color: var(--fg-subtle);
+      border-radius: 2px;
+    }
+
+    .terminal-body {
+      height: 440px;
+      max-height: 65vh;
+      overflow-y: auto;
+      padding: 18px 20px;
+      background: var(--bg-primary);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: var(--fg-primary);
+      scrollbar-width: thin;
+      display: flex;
+      flex-direction: column;
+      cursor: text;
+    }
+
+    .terminal-stream {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .terminal-line {
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .terminal-line.cmd-echo {
+      color: var(--fg-primary);
+      font-weight: 600;
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .terminal-line.cmd-echo .terminal-prompt-user {
+      color: var(--fg-subtle);
+    }
+
+    .terminal-line.topology-line {
+      font-size: 0.72rem;
+      line-height: 1.35;
+      color: var(--fg-primary);
+      white-space: pre;
+      overflow-x: auto;
+      padding: 8px 12px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-hairline);
+      margin: 8px 0;
+    }
+
+    .terminal-prompt-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      padding-top: 4px;
+    }
+
+    .terminal-prompt-user {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--fg-primary);
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .terminal-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: var(--fg-primary);
+      font-family: var(--font-mono);
+      font-size: 0.86rem;
+      letter-spacing: 0.02em;
+      padding: 0;
+    }
+
+    .terminal-input::placeholder {
+      color: var(--fg-subtle);
+      opacity: 0.6;
+    }
+
+    .terminal-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 18px;
+      border-top: 1px solid var(--border-hairline);
+      background: var(--bg-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--fg-subtle);
+      user-select: none;
+    }
+
+    .terminal-hints {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .terminal-hints kbd {
+      padding: 2px 5px;
+      border: 1px solid var(--border-hairline);
+      background: var(--bg-primary);
+      color: var(--fg-muted);
+      border-radius: 2px;
+      font-size: 0.7rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CONTEXTUAL CURSOR FOLLOWER (Native mouse remains 100% visible) -->
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <nav id="site-nav">
+    <div class="container nav-inner">
+      <a href="#" class="brand-id" data-magnetic>
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">MRIDUL MATHUR</span>
+        <span class="brand-subtitle">AI & SYSTEMS</span>
+      </a>
+      <div class="nav-controls-group">
+        <div class="nav-links">
+          <a href="#about" class="nav-link" data-magnetic>About</a>
+          <a href="#projects" class="nav-link" data-magnetic>Projects</a>
+          <a href="#experience" class="nav-link" data-magnetic>Experience</a>
+          <a href="#certifications" class="nav-link" data-magnetic>Certs</a>
+          <a href="#skills" class="nav-link" data-magnetic>Skills</a>
+          <a href="#contact" class="nav-link" data-magnetic>Contact</a>
+        </div>
+        <a href="./Mridul_Mathur_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-resume-btn" aria-label="Open Mridul Mathur Resume PDF" data-magnetic>
+          <span>RESUME</span>
+          <span class="cmd-icon">↗</span>
+        </a>
+        <button id="nav-cmd-btn" class="nav-cmd-btn" aria-label="Open UNIX Systems Terminal" data-magnetic>
+          <span class="cmd-icon">&gt;_</span>
+          <span class="cmd-label-text">TERMINAL</span>
+        </button>
+        <button id="nav-theme-btn" class="nav-theme-btn" aria-label="Toggle light and dark color mode" data-magnetic>
+          <span id="nav-theme-icon">◐</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HAIRLINE SCROLL HORIZON INDICATOR -->
+  <div id="scroll-horizon" class="scroll-horizon" aria-hidden="true"></div>
+
+  <!-- HERO SECTION -->
+  <header class="hero-section">
+    <div class="container">
+      
+      <!-- Telemetry Status Bar -->
+      <div class="hero-telemetry" role="status" aria-label="System Status Telemetry">
+        <div class="telemetry-item">
+          <span class="status-pulse" aria-hidden="true"></span>
+          <span>STATUS: <strong>AVAILABLE FOR SWE ROLES & INTERNSHIPS (CLASS OF 2028)</strong></span>
+        </div>
+        <div class="telemetry-item">
+          <span>TIME: <strong id="telemetry-time">--:--:-- IST</strong></span>
+        </div>
+        <div class="telemetry-item">
+          <span>SPEC: <strong>AWS CLOUD / AGENTIC AI / DISTRIBUTED SYSTEMS</strong></span>
+        </div>
+        <div class="telemetry-item">
+          <button id="toggle-audio-btn" class="telemetry-btn" data-magnetic>
+            <span>AUDIO:</span>
+            <strong id="audio-status-text">[OFF]</strong>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero Main Content -->
+      <div class="hero-main">
+        <div class="hero-role-badge">
+          <span>ENGINEERING PORTFOLIO • BENGALURU / CHENNAI</span>
+        </div>
+
+        <h1 class="hero-headline" aria-label="Mridul Mathur — Systems and AI Engineer">
+          <span class="headline-row">
+            <span class="kinetic-word word-1">Mridul</span>
+            <span class="kinetic-word word-2">Mathur</span>
+          </span>
+          <span class="headline-row">
+            <span class="kinetic-word word-3">AI & Systems</span>
+          </span>
+          <span class="headline-row">
+            <span class="kinetic-word word-4">Engineer</span>
+          </span>
+        </h1>
+
+        <div class="hero-summary-grid">
+          <div>
+            <p class="hero-lead-text">
+              Architecting <strong>cloud-native distributed backends</strong>, <strong>agentic LLM reasoning graphs</strong>, and real-time high-frequency telemetry systems with empirical rigor.
+            </p>
+            <p style="margin-top: 14px; font-family: var(--font-mono); font-size: 0.88rem; color: var(--fg-subtle);">
+              B.Tech CSE (AI & ML) @ SRMIST (2024–2028) · Intern @ Infinitra Innovations · Targeting Summer 2026/2027 SWE Internships & Part-Time Systems Roles
+            </p>
+          </div>
+
+          <div class="hero-actions">
+            <div class="hero-btn-cluster">
+              <a href="#projects" class="btn-action btn-primary" data-magnetic>
+                <span>Inspect Systems</span>
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+              <a href="#contact" class="btn-action" data-magnetic>
+                <span>Get in Touch</span>
+                <span class="arrow" aria-hidden="true">↓</span>
+              </a>
+            </div>
+            <div class="hero-links-compact">
+              <a href="./Mridul_Mathur_Resume.pdf" target="_blank" rel="noopener noreferrer" style="font-weight: 700; color: var(--fg-primary);" data-magnetic>Resume (PDF) ↗</a>
+              <span>/</span>
+              <a href="https://github.com/MatMridul" target="_blank" rel="noopener noreferrer" data-magnetic>GitHub ↗</a>
+              <span>/</span>
+              <a href="https://www.linkedin.com/in/matmridul/" target="_blank" rel="noopener noreferrer" data-magnetic>LinkedIn ↗</a>
+              <span>/</span>
+              <a href="mailto:mridul.mat@gmail.com" data-magnetic>Email ↗</a>
+            </div>
+            <button id="hero-cmd-trigger" class="hero-cmd-trigger" data-magnetic aria-label="Open UNIX Systems Terminal">
+              <span class="prompt-arrow" aria-hidden="true">&gt;</span>
+              <span>PRESS <kbd>⌘K</kbd> OR <kbd>Ctrl+K</kbd> TO LAUNCH SYSTEMS TERMINAL</span>
+              <span class="cmd-badge" aria-hidden="true">CLI</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <!-- ABOUT SECTION -->
+    <section id="about">
+      <div class="section-divider" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-header">
+          <h2>About</h2>
+        </div>
+        
+        <div class="about-manifesto">
+          <div class="manifesto-body reveal-on-scroll">
+            <p>
+              My path into computer science wasn’t conventional. Having initially trained intensively in pre-medicine and NEET, I developed an instinct for diagnosing interconnected, complex systems under pressure. When I transitioned into Computer Science Engineering (AI & ML) at SRMIST, that diagnostic mindset became my greatest asset.
+            </p>
+            <p>
+              I build software where correctness, deterministic failovers, and low latency matter. Whether benchmarking multimodal sign translation pipelines against ACL 2024 literature on AWS A10G instances, engineering autonomous FastMCP ambient defense meshes for the Amazon Developer Hackathon, or orchestrating nationwide AWS ETL pipelines at Infinitra Innovations, I value architectural durability and empirical correctness over fleeting demo novelties.
+            </p>
+            <p>
+              Beyond raw code, I lead technical initiatives as an Associate in the AWS Student Builder Group at SRMIST, direct app development initiatives at CINTEL's Next-Gen AI, and have coached 40+ speakers as a two-term Vice President of Education in Toastmasters International.
+            </p>
+          </div>
+
+          <div class="manifesto-sidebar reveal-on-scroll">
+            <div class="sidebar-title">ENGINEERING PROFILE</div>
+            <div class="sidebar-item">
+              <span class="sidebar-label">Current Role</span>
+              <span>Intern – Full Stack AWS Cloud @ Infinitra</span>
+            </div>
+            <div class="sidebar-item">
+              <span class="sidebar-label">Academia</span>
+              <span>B.Tech in CSE (AI & ML) · SRMIST<br/>Graduation: May 2028 (Class of 2028)</span>
+            </div>
+            <div class="sidebar-item">
+              <span class="sidebar-label">Target Engagement</span>
+              <span>Summer 2026/2027 SWE Internships<br/>Remote Part-Time Distributed & AI Systems</span>
+            </div>
+            <div class="sidebar-item">
+              <span class="sidebar-label">Community & Leadership</span>
+              <span>Associate @ AWS Student Builder Group<br/>Lead @ CINTEL App Dev<br/>VP Education @ Toastmasters</span>
+            </div>
+            <div class="sidebar-item">
+              <span class="sidebar-label">Core Philosophy</span>
+              <span>Deterministic architecture over speculative hype.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+      <div class="section-divider" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-header">
+          <h2>Featured Systems</h2>
+        </div>
+        
+        <div class="grid" id="projects-grid">
+          
+          <!-- ARIA -->
+          <div class="card reveal-on-scroll" data-tilt data-href="https://github.com/MatMridul/ARIA" data-skills="typescript,python,fastapi,react,graph,ai">
+            <div class="card-top">
+              <span class="card-category-tag">PAYMENT RECOVERY & GRAPH REASONING</span>
+              <h3>ARIA</h3>
+              <div class="card-meta">ATLAS-Class Payment Recovery Engine · 94% RCA Accuracy</div>
+              <p>
+                Autonomous revenue-recovery engine analyzing multi-tier payment degradation graphs. Achieves <strong>94% root-cause attribution accuracy</strong> (vs 0.0% graph-blind baseline), <strong>0.0% unsafe action rate</strong>, and <strong>99.88% non-intervention precision</strong> across a 62-test deterministic chaos battery.
+              </p>
+              <div class="tech-badges">
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">FastAPI</span>
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Graph Analysis</span>
+              </div>
+            </div>
+            <div class="card-footer-action">
+              <button type="button" class="btn-topology" aria-expanded="false" aria-label="Toggle ARIA architecture topology blueprint" data-magnetic>
+                <span class="btn-topo-icon" aria-hidden="true">[+]</span>
+                <span>TOPOLOGY</span>
+              </button>
+              <a href="https://github.com/MatMridul/ARIA" target="_blank" rel="noopener noreferrer" class="card-link" data-magnetic>
+                <span>View Source</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div class="card-topology-drawer" aria-hidden="true">
+              <pre class="topology-pre">
+  [Payment Ingest] ──► [FastAPI Gateway]
+                              │
+                    ┌─────────┴─────────┐
+                    ▼                   ▼
+           [Query Decomposer]   [Topology Monitor]
+                    │                   │
+                    ▼                   ▼
+          [Hybrid Vector Search]  [Dependency Graph]
+            (Qdrant Embeddings)     (Neo4j Graph)
+                    │                   │
+                    └─────────┬─────────┘
+                              ▼
+                     [Cross-Encoder]
+                              │
+                    ┌─────────┴─────────┐
+                    ▼                   ▼
+            [vLLM Inference]    [Deterministic Fallback]
+           (Mistral Reasoning)   (Payment Route Failover)</pre>
+            </div>
+          </div>
+
+          <!-- FixFlow -->
+          <div class="card reveal-on-scroll" data-tilt data-href="https://github.com/MatMridul/FixFlow" data-skills="python,langchain,fastapi,nextjs,ai,agentic">
+            <div class="card-top">
+              <span class="card-category-tag">GENAI HACKATHON · SAMSUNG PRISM</span>
+              <h3>FixFlow</h3>
+              <div class="card-meta">Smart Guided Troubleshooting Engine · P95 10ms Cache</div>
+              <p>
+                Engineered for Samsung PRISM GenAI (Theme 02). Delivers <strong>P95 10.1ms cache retrieval</strong>, <strong>95.5% deeplink accuracy at $0.00 inference cost</strong> via hybrid BM25/screen-graph routing, and <strong>100% rule compliance (144/144 checks)</strong> with hedged multi-model LLM fallback.
+              </p>
+              <div class="tech-badges">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">LangChain</span>
+                <span class="tech-tag">FastAPI</span>
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">Agentic Workflows</span>
+              </div>
+            </div>
+            <div class="card-footer-action">
+              <button type="button" class="btn-topology" aria-expanded="false" aria-label="Toggle FixFlow architecture topology blueprint" data-magnetic>
+                <span class="btn-topo-icon" aria-hidden="true">[+]</span>
+                <span>TOPOLOGY</span>
+              </button>
+              <a href="https://github.com/MatMridul/FixFlow" target="_blank" rel="noopener noreferrer" class="card-link" data-magnetic>
+                <span>View Source</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div class="card-topology-drawer" aria-hidden="true">
+              <pre class="topology-pre">
+  [Diagnostic Webhook] ──► [FastAPI Ingestion]
+                                  │
+                                  ▼
+                      [AST Syntax Parsing Engine]
+                                  │
+                                  ▼
+                     [Code Dependency Graph DB]
+                                  │
+                    ┌─────────────┴─────────────┐
+                    ▼                           ▼
+          [Multi-Intent Cache]       [LLM Diagnostic Agent]
+          (Screen Graph Rerank)      (LangChain Orchestration)
+                    │                           │
+                    └─────────────┬─────────────┘
+                                  ▼
+                     [Verification Sandbox]
+                                  │
+                                  ▼
+                      [Automated PR Generation]</pre>
+            </div>
+          </div>
+
+          <!-- APX-IQ -->
+          <div class="card reveal-on-scroll" data-tilt data-href="https://github.com/MatMridul/APX-IQ" data-skills="typescript,nextjs,udp,python,telemetry">
+            <div class="card-top">
+              <span class="card-category-tag">HIGH-FREQUENCY TELEMETRY & ML</span>
+              <h3>APX-IQ</h3>
+              <div class="card-meta">Real-Time Motorsport Telemetry · 60Hz UDP @ 16ms Cycle</div>
+              <p>
+                Ingests <strong>60Hz live UDP telemetry</strong> across 6 game editions (F1 2020–2025) via modular packet decoders. Streams to a reactive Zustand cockpit via a <strong>sub-16ms WebSocket push cycle</strong>, backed by TimescaleDB persistence and 8 analytical race-engineering engines.
+              </p>
+              <div class="tech-badges">
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">UDP Sockets</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Telemetry Analytics</span>
+              </div>
+            </div>
+            <div class="card-footer-action">
+              <button type="button" class="btn-topology" aria-expanded="false" aria-label="Toggle APX-IQ architecture topology blueprint" data-magnetic>
+                <span class="btn-topo-icon" aria-hidden="true">[+]</span>
+                <span>TOPOLOGY</span>
+              </button>
+              <a href="https://github.com/MatMridul/APX-IQ" target="_blank" rel="noopener noreferrer" class="card-link" data-magnetic>
+                <span>View Source</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div class="card-topology-drawer" aria-hidden="true">
+              <pre class="topology-pre">
+  [EA Sports F1 Sim Engine]
+             │ (UDP 20777 @ 60Hz)
+             ▼
+    [Async UDP Socket] ──► [Packet Decoder]
+                                  │
+                                  ▼
+                    [Shared-Memory Ring Buffer]
+                                  │
+                    ┌─────────────┴─────────────┐
+                    ▼                           ▼
+          [Telemetry Delta Split]     [Pit Strategy Predictor]
+          (Lap Time & Sectors)        (Machine Learning Model)
+                    │                           │
+                    └─────────────┬─────────────┘
+                                  ▼
+                     [WebSocket Push @ 16ms]
+                                  │
+                                  ▼
+                     [Canvas Real-Time HUD]</pre>
+            </div>
+          </div>
+
+          <!-- infinitra-pipeline -->
+          <div class="card reveal-on-scroll" data-tilt data-href="https://github.com/MatMridul/infinitra-pipeline" data-skills="aws,docker,postgresql,python,lambda,ecs">
+            <div class="card-top">
+              <span class="card-category-tag">CLOUD-NATIVE AWS PIPELINE</span>
+              <h3>infinitra-pipeline</h3>
+              <div class="card-meta">Nationwide APMC ETL Pipeline · 23k+ Records / 1.2k+ Mandis</div>
+              <p>
+                Containerized AWS ETL pipeline ingesting <strong>23,000+ records per batch</strong> across <strong>1,289 APMC mandis</strong> in 27 states. Computes volatility transforms across 234 commodity indices using AWS EventBridge, ECS Fargate, Lambda, and B-Tree indexed PostgreSQL.
+              </p>
+              <div class="tech-badges">
+                <span class="tech-tag">AWS ECS</span>
+                <span class="tech-tag">AWS Lambda</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">Python ETL</span>
+              </div>
+            </div>
+            <div class="card-footer-action">
+              <button type="button" class="btn-topology" aria-expanded="false" aria-label="Toggle infinitra-pipeline architecture topology blueprint" data-magnetic>
+                <span class="btn-topo-icon" aria-hidden="true">[+]</span>
+                <span>TOPOLOGY</span>
+              </button>
+              <a href="https://github.com/MatMridul/infinitra-pipeline" target="_blank" rel="noopener noreferrer" class="card-link" data-magnetic>
+                <span>View Source</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div class="card-topology-drawer" aria-hidden="true">
+              <pre class="topology-pre">
+  [Nationwide Agmarknet APMC Portals]
+                   │
+                   ▼
+      [AWS EventBridge Cron Scheduler]
+                   │
+                   ▼
+        [AWS ECS / Fargate Tasks] (Docker Containerized)
+                   │
+                   ▼
+         [Amazon S3 Raw Lake]
+                   │ (Object Event)
+                   ▼
+        [AWS Lambda Transform] (Time-Series Volatility)
+                   │
+                   ▼
+     [Amazon RDS PostgreSQL] (Optimized B-Tree Indexing)
+                   │
+                   ▼
+       [Redis Low-Latency Cache] ──► [FastAPI Consumers]</pre>
+            </div>
+          </div>
+
+                    <!-- ISL-Multimodal -->
+          <div class="card reveal-on-scroll" data-tilt data-href="https://github.com/MatMridul/MinorProject" data-skills="ai,python,pytorch,aws,multimodal,research">
+            <div class="card-top">
+              <span class="card-category-tag">MULTIMODAL AI & BENCHMARK RESEARCH</span>
+              <h3>ISL-Multimodal</h3>
+              <div class="card-meta">Continuous ISL Translation · ACL 2024 SOTA Benchmark</div>
+              <p>
+                Benchmarked against ACL 2024 <em>iSign</em> on Indian Sign Language translation. Replaced English-centric T5 with <strong>Meta NLLB-200 / mBART-50</strong> for a <strong>6.8x ROUGE-L gain (6.54 vs 0.96)</strong>, integrated sub-pixel <strong>DWPose (+133% landmark precision)</strong>, and trained <strong>SignCLIP contrastive representation</strong> achieving <strong>41.49% Top-5% 1-shot accuracy</strong> across 4,765 classes on AWS A10G.
+              </p>
+              <div class="tech-badges">
+                <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">Meta NLLB-200</span>
+                <span class="tech-tag">DWPose</span>
+                <span class="tech-tag">SignCLIP</span>
+                <span class="tech-tag">AWS A10G GPU</span>
+                <span class="tech-tag">ACL Benchmark</span>
+              </div>
+            </div>
+            <div class="card-footer-action">
+              <button type="button" class="btn-topology" aria-expanded="false" aria-label="Toggle ISL-Multimodal architecture topology blueprint" data-magnetic>
+                <span class="btn-topo-icon" aria-hidden="true">[+]</span>
+                <span>TOPOLOGY</span>
+              </button>
+              <a href="https://github.com/MatMridul/MinorProject" target="_blank" rel="noopener noreferrer" class="card-link" data-magnetic>
+                <span>View Source</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div class="card-topology-drawer" aria-hidden="true">
+              <pre class="topology-pre">
+  [Raw Video Stream (126k+ Utterances)]
+                   │
+                   ▼
+       [Whole-Body DWPose Engine]
+      (Sub-Pixel 133-Keypoint Extraction)
+                   │
+         ┌─────────┴─────────┐
+         ▼                   ▼
+  [SignCLIP Spatial]   [SignCLIP Temporal]
+ (InfoNCE Projection) (Multi-Head Attention)
+         │                   │
+         └─────────┬─────────┘
+                   ▼
+       [Joint Representation Space]
+                   │
+         ┌─────────┴─────────┐
+         ▼                   ▼
+  [Meta NLLB-200]     [1-Shot Retrieval Engine]
+ (Continuous ISL)     (4,765 Isolated Classes)
+         │                   │
+         ▼                   ▼
+  [Indic Morph Gloss]  [41.49% Top-5% SOTA Match]</pre>
+            </div>
+          </div>
+
+          <!-- Amazon Vigil -->
+          <div class="card reveal-on-scroll" data-tilt data-href="https://github.com/MatMridul/AmazonVigil" data-skills="python,aws,bedrock,mcp,systems,fastapi">
+            <div class="card-top">
+              <span class="card-category-tag">AUTONOMOUS EDGE DEFENSE & DETERRENCE MESH</span>
+              <h3>Amazon Vigil</h3>
+              <div class="card-meta">Multi-Device Ambient Defense · FastMCP & AWS Bedrock</div>
+              <p>
+                Autonomous home defense mesh built for Amazon Developer Hackathon 2026. Orchestrates <strong>FastMCP Streamable HTTP</strong> with <strong>&lt;50ms System 1 local reflexes</strong> and <strong>System 2 Bedrock (Claude 3.5 Sonnet)</strong> cognitive threat analysis. Features Fire TV HDMI-CEC deterrence actuation, Echo Boot-Bridge 150ms footsteps bluff, and <strong>150 automated tests</strong>.
+              </p>
+              <div class="tech-badges">
+                <span class="tech-tag">FastMCP</span>
+                <span class="tech-tag">AWS Bedrock</span>
+                <span class="tech-tag">Claude 3.5 Sonnet</span>
+                <span class="tech-tag">Ring WebRTC</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">NENA CAD</span>
+              </div>
+            </div>
+            <div class="card-footer-action">
+              <button type="button" class="btn-topology" aria-expanded="false" aria-label="Toggle Amazon Vigil architecture topology blueprint" data-magnetic>
+                <span class="btn-topo-icon" aria-hidden="true">[+]</span>
+                <span>TOPOLOGY</span>
+              </button>
+              <a href="https://github.com/MatMridul/AmazonVigil" target="_blank" rel="noopener noreferrer" class="card-link" data-magnetic>
+                <span>View Source</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div class="card-topology-drawer" aria-hidden="true">
+              <pre class="topology-pre">
+  [Ring Video/PIR Ingest] ──► [WHEP WebRTC Edge Stream]
+                                      │
+                                      ▼
+                        [FastMCP Incident Commander]
+                          (Spec 2025-11-25+ Stream)
+                                      │
+                       ┌──────────────┴──────────────┐
+                       ▼                             ▼
+            [System 1: Local Reflex]     [System 2: Bedrock Multimodal]
+             (&lt;50ms Immediate Bluff)       (Claude 3.5 Sonnet Threat)
+                       │                             │
+                       └──────────────┬──────────────┘
+                                      ▼
+                       [HDMI-CEC &amp; Echo Boot-Bridge]
+                        (150ms Footsteps &amp; Dog Bark)
+                                      │
+                                      ▼
+                       [NENA-Compliant CAD Dispatch]
+                        (1-Tap RapidSOS Direct Staging)</pre>
+            </div>
+          </div>
+</div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience">
+      <div class="section-divider" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-header">
+          <h2>Experience & Leadership</h2>
+        </div>
+        <div class="grid">
+          
+          <div class="card reveal-on-scroll" data-tilt data-skills="aws,docker,fastapi,postgresql,cloud">
+            <div class="card-top">
+              <span class="card-category-tag">CLOUD INDUSTRY EXPERIENCE</span>
+              <h3>Intern – Full Stack Development (AWS)</h3>
+              <div class="card-meta">Infinitra Innovations · Sep 2025 – Present</div>
+              <ul class="impact-list">
+                <li>Architecting containerized cloud-native ETL pipelines on AWS ECS/Fargate and AWS Lambda ingesting 23,000+ daily agricultural records across 1,289 APMC mandis nationwide.</li>
+                <li>Engineering production PostgreSQL schemas and asynchronous REST APIs in FastAPI, optimizing database connection pooling and achieving sub-200ms query latencies on time-series datasets.</li>
+                <li>Working closely alongside founder Saida Babu Chanda (Ex-AWS) on serverless infrastructure, distributed systems resilience, and AWS cloud security compliance.</li>
+              </ul>
+            </div>
+            <div class="tech-badges">
+              <span class="tech-tag">AWS Cloud</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+          </div>
+
+          <div class="card reveal-on-scroll" data-tilt data-skills="aws,bedrock,sagemaker,ai">
+            <div class="card-top">
+              <span class="card-category-tag">COMMUNITY & CLOUD INITIATIVES</span>
+              <h3>Associate – AI/ML Tech Domain</h3>
+              <div class="card-meta">AWS Student Builder Group @ SRMIST · Jan 2026 – Present</div>
+              <ul class="impact-list">
+                <li>Directing technical tracks across the student developer ecosystem, organizing hands-on cloud architecture hackathons and deep-dive technical workshops for 120+ student engineers.</li>
+                <li>Delivering applied demonstrations on Amazon Bedrock generative models, foundation model inference tuning, and AWS SageMaker distributed pipelines.</li>
+                <li>Mentoring 80+ student engineers in cloud architecture fundamentals and AWS practitioner certification roadmaps with verified passing outcomes.</li>
+              </ul>
+            </div>
+            <div class="tech-badges">
+              <span class="tech-tag">Amazon Bedrock</span>
+              <span class="tech-tag">SageMaker</span>
+              <span class="tech-tag">Cloud Workshops</span>
+            </div>
+          </div>
+
+          <div class="card reveal-on-scroll" data-tilt data-skills="systems,fullstack,python,typescript">
+            <div class="card-top">
+              <span class="card-category-tag">TECHNICAL LEADERSHIP</span>
+              <h3>Lead – App Development</h3>
+              <div class="card-meta">CINTEL’s Next-Gen AI · Oct 2025 – Present</div>
+              <ul class="impact-list">
+                <li>Promoted from Creatives to lead the department's flagship application development division at SRMIST's Department of Computational Intelligence.</li>
+                <li>Directing end-to-end full-stack architectures, code reviews, and deployment pipelines for intelligent internal departmental tools.</li>
+                <li>Structuring onboarding curricula and technical mentorship sprints for junior developers in modern systems engineering.</li>
+              </ul>
+            </div>
+            <div class="tech-badges">
+              <span class="tech-tag">System Design</span>
+              <span class="tech-tag">Full Stack</span>
+              <span class="tech-tag">Mentorship</span>
+            </div>
+          </div>
+
+          <div class="card reveal-on-scroll" data-tilt data-skills="leadership,rhetoric">
+            <div class="card-top">
+              <span class="card-category-tag">LEADERSHIP & RHETORIC</span>
+              <h3>Vice President – Education</h3>
+              <div class="card-meta">Toastmasters International · 2 Consecutive Terms</div>
+              <ul class="impact-list">
+                <li>Elected Vice President of Education for two consecutive terms, managing educational goals and meeting logistics for 40+ active members.</li>
+                <li>Coached members in structured rhetorical argumentation, parliamentary debate procedure, and high-stakes executive technical presentations.</li>
+                <li>Awarded multiple division accolades for achieving 100% DCP educational club targets ahead of schedule.</li>
+              </ul>
+            </div>
+            <div class="tech-badges">
+              <span class="tech-tag">Public Rhetoric</span>
+              <span class="tech-tag">Team Operations</span>
+              <span class="tech-tag">Pedagogy</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS SECTION -->
+    <section id="certifications">
+      <div class="section-divider" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-header">
+          <h2>Verified Credentials</h2>
+        </div>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));">
+          
+          <a href="https://www.credly.com/users/matmridul" target="_blank" rel="noopener noreferrer" class="cert-item reveal-on-scroll" data-magnetic aria-label="Verify AWS Certified AI Practitioner on Credly">
+            <div>
+              <strong>AWS Certified AI Practitioner</strong>
+              <div style="font-size: 0.74rem; color: var(--fg-subtle); margin-top: 4px;">Amazon Web Services · Official Credential</div>
+            </div>
+            <div class="cert-badge-group">
+              <span class="cert-badge">AWS</span>
+              <span class="cert-verify-tag">VERIFY ↗</span>
+            </div>
+          </a>
+
+          <a href="https://aws.amazon.com/training/" target="_blank" rel="noopener noreferrer" class="cert-item reveal-on-scroll" data-magnetic aria-label="Verify Amazon Bedrock Badge">
+            <div>
+              <strong>Amazon Bedrock – Getting Started</strong>
+              <div style="font-size: 0.74rem; color: var(--fg-subtle); margin-top: 4px;">Foundation Models & GenAI</div>
+            </div>
+            <div class="cert-badge-group">
+              <span class="cert-badge">AWS</span>
+              <span class="cert-verify-tag">VERIFY ↗</span>
+            </div>
+          </a>
+
+          <a href="https://aws.amazon.com/q/developer/" target="_blank" rel="noopener noreferrer" class="cert-item reveal-on-scroll" data-magnetic aria-label="Verify Amazon Q Developer Credential">
+            <div>
+              <strong>Amazon Q Developer</strong>
+              <div style="font-size: 0.74rem; color: var(--fg-subtle); margin-top: 4px;">Generative Software Development</div>
+            </div>
+            <div class="cert-badge-group">
+              <span class="cert-badge">AWS</span>
+              <span class="cert-verify-tag">VERIFY ↗</span>
+            </div>
+          </a>
+
+          <a href="https://nptel.ac.in/" target="_blank" rel="noopener noreferrer" class="cert-item reveal-on-scroll" data-magnetic aria-label="Verify Programming in Java Elite Certificate">
+            <div>
+              <strong>Programming in Java – Elite</strong>
+              <div style="font-size: 0.74rem; color: var(--fg-subtle); margin-top: 4px;">Certified Elite · NPTEL</div>
+            </div>
+            <div class="cert-badge-group">
+              <span class="cert-badge">IIT KGP</span>
+              <span class="cert-verify-tag">VERIFY ↗</span>
+            </div>
+          </a>
+
+          <a href="https://nptel.ac.in/" target="_blank" rel="noopener noreferrer" class="cert-item reveal-on-scroll" data-magnetic aria-label="Verify Intro to Operating Systems Certificate">
+            <div>
+              <strong>Intro to Operating Systems</strong>
+              <div style="font-size: 0.74rem; color: var(--fg-subtle); margin-top: 4px;">Kernel, Concurrency & Virtual Memory</div>
+            </div>
+            <div class="cert-badge-group">
+              <span class="cert-badge">IIT MADRAS</span>
+              <span class="cert-verify-tag">VERIFY ↗</span>
+            </div>
+          </a>
+
+          <a href="https://www.deeplearning.ai/" target="_blank" rel="noopener noreferrer" class="cert-item reveal-on-scroll" data-magnetic aria-label="Verify Machine Learning Terminology Certificate">
+            <div>
+              <strong>Machine Learning Terminology</strong>
+              <div style="font-size: 0.74rem; color: var(--fg-subtle); margin-top: 4px;">Supervised & Deep Learning</div>
+            </div>
+            <div class="cert-badge-group">
+              <span class="cert-badge">DEEPLEARNING</span>
+              <span class="cert-verify-tag">VERIFY ↗</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION WITH INTERACTIVE CROSS-FILTERING -->
+    <section id="skills">
+      <div class="section-divider" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-header">
+          <h2>Technical Capabilities</h2>
+        </div>
+
+        <div class="skills-filter-header reveal-on-scroll">
+          <div class="skills-filter-status" id="filter-status-text">
+            <span>FILTER MODE:</span> <strong>SHOWING ALL SYSTEMS</strong>
+          </div>
+          <button id="reset-filter-btn" class="skills-reset-btn" data-magnetic>
+            RESET FILTER
+          </button>
+        </div>
+
+        <div class="skills-category reveal-on-scroll">
+          <div class="skills-category-title">Cloud Infrastructure & Distributed Systems</div>
+          <div class="skills-grid">
+            <button class="pill" data-skill="aws" data-magnetic>Amazon Web Services (AWS)</button>
+            <button class="pill" data-skill="ecs" data-magnetic>AWS ECS / Fargate</button>
+            <button class="pill" data-skill="lambda" data-magnetic>AWS Lambda</button>
+            <button class="pill" data-skill="docker" data-magnetic>Docker & Containers</button>
+            <button class="pill" data-skill="systems" data-magnetic>Linux / POSIX Internals</button>
+            <button class="pill" data-skill="cloud" data-magnetic>Cloud Architecture</button>
+          </div>
+        </div>
+
+        <div class="skills-category reveal-on-scroll">
+          <div class="skills-category-title">Applied AI & Agentic Systems</div>
+          <div class="skills-grid">
+            <button class="pill" data-skill="bedrock" data-magnetic>Amazon Bedrock</button>
+            <button class="pill" data-skill="mcp" data-magnetic>Model Context Protocol (MCP)</button>
+            <button class="pill" data-skill="agentic" data-magnetic>Agentic Workflows</button>
+            <button class="pill" data-skill="langchain" data-magnetic>LangChain / LangGraph</button>
+            <button class="pill" data-skill="graph" data-magnetic>Graph Reasoning</button>
+            <button class="pill" data-skill="ai" data-magnetic>Deep Learning / PyTorch</button>
+            <button class="pill" data-skill="research" data-magnetic>Benchmark AI Research</button>
+          </div>
+        </div>
+
+        <div class="skills-category reveal-on-scroll">
+          <div class="skills-category-title">Core Systems, Languages & Data</div>
+          <div class="skills-grid">
+            <button class="pill" data-skill="python" data-magnetic>Python</button>
+            <button class="pill" data-skill="java" data-magnetic>Java (Certified Elite)</button>
+            <button class="pill" data-skill="typescript" data-magnetic>TypeScript / JavaScript</button>
+            <button class="pill" data-skill="fastapi" data-magnetic>FastAPI / REST APIs</button>
+            <button class="pill" data-skill="postgresql" data-magnetic>PostgreSQL / SQL</button>
+            <button class="pill" data-skill="nextjs" data-magnetic>Next.js & React</button>
+            <button class="pill" data-skill="udp" data-magnetic>UDP Socket Streaming</button>
+            <button class="pill" data-skill="telemetry" data-magnetic>Telemetry Analytics</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+      <div class="section-divider" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-header">
+          <h2>Transmission & Contact</h2>
+        </div>
+        
+        <p style="font-size: 1.15rem; max-width: 680px; color: var(--fg-primary);" class="reveal-on-scroll">
+          Actively available for software engineering roles, cloud systems internships, and research collaborations.
+        </p>
+
+        <div class="contact-card-box reveal-on-scroll">
+          <div class="contact-email-row">
+            <a href="mailto:mridul.mat@gmail.com" class="card-link" style="font-size: 1.05rem;" data-magnetic>
+              <span>EMAIL: mridul.mat@gmail.com</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+            <button id="copy-email-btn" class="copy-btn" aria-label="Copy email address to clipboard" data-magnetic>
+              <span id="copy-btn-text">COPY EMAIL</span>
+            </button>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px; font-family: var(--font-mono); font-size: 0.95rem;">
+            <a href="https://www.linkedin.com/in/matmridul/" target="_blank" rel="noopener noreferrer" class="card-link" data-magnetic>
+              <span>LINKEDIN: linkedin.com/in/matmridul</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+            <a href="https://github.com/MatMridul" target="_blank" rel="noopener noreferrer" class="card-link" data-magnetic>
+              <span>GITHUB: github.com/MatMridul</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> MRIDUL MATHUR — ALL RIGHTS RESERVED</div>
+      <div>AI & SYSTEMS ARCHITECTURE</div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       AUTHENTIC UNIX SYSTEMS TERMINAL (Cmd+K / Ctrl+K)
+       ========================================================================== -->
+  <div id="terminal-overlay" class="terminal-overlay" aria-hidden="true" inert role="dialog" aria-modal="true" aria-label="UNIX Systems Terminal">
+    <div class="terminal-backdrop"></div>
+    <div class="terminal-window">
+      <div class="terminal-titlebar">
+        <div class="terminal-dots">
+          <span class="terminal-dot"></span>
+          <span class="terminal-dot"></span>
+          <span class="terminal-dot"></span>
+        </div>
+        <span class="terminal-title-text">mridul@systems-core: ~/portfolio (sh)</span>
+        <div class="terminal-title-right">
+          <span class="terminal-badge">UTF-8</span>
+          <kbd class="terminal-esc-key">ESC</kbd>
+        </div>
+      </div>
+      <div id="terminal-body" class="terminal-body">
+        <div id="terminal-stream" class="terminal-stream" aria-live="polite"></div>
+        <div class="terminal-prompt-row">
+          <span class="terminal-prompt-user" aria-hidden="true">mridul@core:~$</span>
+          <input type="text" id="terminal-input" class="terminal-input" placeholder="Type --help for available commands..." autocomplete="off" spellcheck="false" aria-label="Terminal command input" disabled />
+        </div>
+      </div>
+      <div class="terminal-footer">
+        <div class="terminal-hints">
+          <span><kbd>↑</kbd><kbd>↓</kbd> History</span>
+          <span><kbd>↵</kbd> Execute</span>
+          <span><kbd>ESC</kbd> Close</span>
+        </div>
+        <div class="terminal-status">
+          <span>TYPE --help FOR MANUAL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ==========================================================================
+    // SYSTEM CLOCK TELEMETRY (IST)
+    // ==========================================================================
+    function updateClock() {
+      const now = new Date();
+      const options = { timeZone: 'Asia/Kolkata', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      const timeStr = now.toLocaleTimeString('en-GB', options);
+      const clockEl = document.getElementById('telemetry-time');
+      if (clockEl) {
+        clockEl.textContent = `${timeStr} IST`;
+      }
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    // Dynamic Year
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.innerText = new Date().getFullYear();
+
+    // ==========================================================================
+    // THEME MANAGER (Light & Dark Inverted Modes)
+    // ==========================================================================
+    const navThemeBtn = document.getElementById('nav-theme-btn');
+    const navThemeIcon = document.getElementById('nav-theme-icon');
+    const toggleThemeBtn = document.getElementById('toggle-theme-btn');
+    const themeStatusText = document.getElementById('theme-status-text');
+
+    function getActiveTheme() {
+      return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+
+    function syncThemeUI(theme) {
+      if (theme === 'dark') {
+        if (themeStatusText) themeStatusText.textContent = '[LIGHT]';
+        if (navThemeIcon) navThemeIcon.textContent = '☼';
+      } else {
+        if (themeStatusText) themeStatusText.textContent = '[DARK]';
+        if (navThemeIcon) navThemeIcon.textContent = '◐';
+      }
+    }
+
+    function setTheme(newTheme) {
+      document.documentElement.setAttribute('data-theme', newTheme);
+      try { localStorage.setItem('portfolio-theme', newTheme); } catch (e) {}
+      syncThemeUI(newTheme);
+      triggerHaptic('confirm');
+    }
+
+    function toggleTheme() {
+      const current = getActiveTheme();
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    }
+
+    syncThemeUI(getActiveTheme());
+    if (navThemeBtn) navThemeBtn.addEventListener('click', toggleTheme);
+    if (toggleThemeBtn) toggleThemeBtn.addEventListener('click', toggleTheme);
+
+    // ==========================================================================
+    // CALIBRATED MULTI-SENSORY HAPTIC & SYNTHETIC AUDIO ENGINE
+    // ==========================================================================
+    let audioEnabled = false;
+    try {
+      audioEnabled = localStorage.getItem('portfolio-audio') === 'true';
+    } catch (e) {}
+
+    const toggleAudioBtn = document.getElementById('toggle-audio-btn');
+    const audioStatusText = document.getElementById('audio-status-text');
+
+    function syncAudioUI(enabled) {
+      if (audioStatusText) {
+        audioStatusText.textContent = enabled ? '[ON]' : '[OFF]';
+      }
+    }
+    syncAudioUI(audioEnabled);
+
+    let audioCtx = null;
+    function initAudioContext() {
+      if (!audioCtx) {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioContextClass) {
+          audioCtx = new AudioContextClass();
+        }
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    function playAcousticTick(tone = 'tick') {
+      if (!audioEnabled) return;
+      try {
+        initAudioContext();
+        if (!audioCtx) return;
+
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        if (tone === 'tick') {
+          // Precise mechanical click: 1600Hz -> 350Hz in 28ms
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(1600, now);
+          osc.frequency.exponentialRampToValueAtTime(350, now + 0.028);
+          gain.gain.setValueAtTime(0.09, now);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.028);
+          osc.start(now);
+          osc.stop(now + 0.028);
+        } else if (tone === 'snap') {
+          // Solid mechanical snap: 950Hz -> 220Hz in 40ms
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(950, now);
+          osc.frequency.exponentialRampToValueAtTime(220, now + 0.04);
+          gain.gain.setValueAtTime(0.12, now);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.04);
+          osc.start(now);
+          osc.stop(now + 0.04);
+        } else if (tone === 'confirm') {
+          // Affirmative double-tone: D5 (587Hz) to A5 (880Hz)
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(587.33, now);
+          osc.frequency.setValueAtTime(880, now + 0.05);
+          gain.gain.setValueAtTime(0.10, now);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.14);
+          osc.start(now);
+          osc.stop(now + 0.14);
+        }
+      } catch (err) {}
+    }
+
+    function toggleAudio() {
+      audioEnabled = !audioEnabled;
+      try { localStorage.setItem('portfolio-audio', audioEnabled); } catch (e) {}
+      syncAudioUI(audioEnabled);
+      if (audioEnabled) {
+        initAudioContext();
+        playAcousticTick('snap');
+      }
+      if ('vibrate' in navigator) {
+        try { navigator.vibrate(18); } catch (e) {}
+      }
+    }
+
+    if (toggleAudioBtn) {
+      toggleAudioBtn.addEventListener('click', toggleAudio);
+    }
+
+    // Unified Tactile Feedback (Mobile Vibration + Desktop Synthetic Sound)
+    function triggerHaptic(type = 'light') {
+      // 1. Mobile Physical Haptics
+      if ('vibrate' in navigator) {
+        try {
+          if (type === 'tick') navigator.vibrate(8);
+          else if (type === 'light') navigator.vibrate(12);
+          else if (type === 'medium' || type === 'snap') navigator.vibrate(20);
+          else if (type === 'selection' || type === 'confirm') navigator.vibrate([10, 24, 10]);
+        } catch (err) {}
+      }
+
+      // 2. Synthetic Acoustic Feedback
+      if (type === 'tick') playAcousticTick('tick');
+      else if (type === 'light') playAcousticTick('tick');
+      else if (type === 'medium' || type === 'snap') playAcousticTick('snap');
+      else if (type === 'selection' || type === 'confirm') playAcousticTick('confirm');
+    }
+
+    // Attach click haptics to all interactive elements
+    document.querySelectorAll('a, button, .btn-action, .pill, .card, .cert-item').forEach(el => {
+      el.addEventListener('click', () => triggerHaptic('light'), { passive: true });
+    });
+
+    // ==========================================================================
+    // SCROLL-SYNCHRONIZED HORIZON & MILESTONE TICKS
+    // ==========================================================================
+    const scrollHorizon = document.getElementById('scroll-horizon');
+    let ticking = false;
+
+    function updateScrollHorizon() {
+      if (scrollHorizon) {
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = totalHeight > 0 ? Math.min(1, Math.max(0, window.scrollY / totalHeight)) : 0;
+        scrollHorizon.style.transform = `scaleX(${progress})`;
+      }
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateScrollHorizon);
+        ticking = true;
+      }
+    }, { passive: true });
+    updateScrollHorizon();
+
+    // ==========================================================================
+    // CHAMFER BORDER-BEAM & 3D TILT (Dynamic Pointer Light Tracking)
+    // ==========================================================================
+    const motionActive = true;
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+      // Inject ambient card spotlight element if missing
+      if (!card.querySelector('.card-spotlight')) {
+        const spot = document.createElement('div');
+        spot.className = 'card-spotlight';
+        spot.setAttribute('aria-hidden', 'true');
+        card.insertBefore(spot, card.firstChild);
+      }
+      // Inject hairline border beam element if missing
+      if (!card.querySelector('.card-beam')) {
+        const beam = document.createElement('div');
+        beam.className = 'card-beam';
+        beam.setAttribute('aria-hidden', 'true');
+        card.appendChild(beam);
+      }
+
+      card.addEventListener('mousemove', (e) => {
+        if (!motionActive) return;
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        // Dynamic light reflection coordinates
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+        card.style.setProperty('--beam-opacity', '1');
+
+        // Hardware-accelerated 3D tilt
+        if (card.hasAttribute('data-tilt')) {
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const tiltX = ((y - centerY) / centerY) * -3.2;
+          const tiltY = ((x - centerX) / centerX) * 3.2;
+          card.style.transform = `perspective(800px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) translateY(-4px)`;
+        }
+      }, { passive: true });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--beam-opacity', '0');
+        if (card.hasAttribute('data-tilt')) {
+          card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)';
+        }
+      }, { passive: true });
+
+      // Clickable card navigation
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.card-topology-drawer')) return;
+        const targetUrl = card.getAttribute('data-href');
+        if (targetUrl) {
+          triggerHaptic('medium');
+          window.open(targetUrl, '_blank', 'noopener,noreferrer');
+        }
+      });
+    });
+
+    // ==========================================================================
+    // CONTEXTUAL CURSOR FOLLOWER
+    // ==========================================================================
+    const ring = document.querySelector('.cursor-ring');
+    let mouseX = -100;
+    let mouseY = -100;
+    let ringX = -100;
+    let ringY = -100;
+    let isVisible = false;
+
+    window.addEventListener('mousemove', (e) => {
+      if (!motionActive) return;
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      if (!isVisible) {
+        isVisible = true;
+        if (ring) {
+          ring.style.opacity = '1';
+          ring.classList.remove('cursor-hidden');
+        }
+        ringX = mouseX;
+        ringY = mouseY;
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchstart', () => {
+      isVisible = false;
+      if (ring) ring.style.opacity = '0';
+    }, { passive: true });
+
+    document.addEventListener('mouseleave', () => {
+      isVisible = false;
+      if (ring) {
+        ring.style.opacity = '0';
+        ring.classList.add('cursor-hidden');
+      }
+    });
+
+    document.addEventListener('mouseenter', () => {
+      if (motionActive && ring) {
+        isVisible = true;
+        ring.style.opacity = '1';
+        ring.classList.remove('cursor-hidden');
+      }
+    });
+
+    function renderCursor() {
+      if (isVisible && motionActive && ring) {
+        ringX += (mouseX - ringX) * 0.22;
+        ringY += (mouseY - ringY) * 0.22;
+        ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+      }
+      requestAnimationFrame(renderCursor);
+    }
+    requestAnimationFrame(renderCursor);
+
+    // Interactive Hover States
+    const interactiveElements = document.querySelectorAll('a, button, .btn-action, .card, .pill, .cert-item, [data-magnetic]');
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        if (motionActive) document.body.classList.add('is-hovering');
+      }, { passive: true });
+      el.addEventListener('mouseleave', () => {
+        document.body.classList.remove('is-hovering');
+      }, { passive: true });
+    });
+
+    window.addEventListener('mousedown', () => {
+      if (motionActive) document.body.classList.add('is-pressing');
+    }, { passive: true });
+    window.addEventListener('mouseup', () => {
+      document.body.classList.remove('is-pressing');
+    }, { passive: true });
+
+    // Magnetic Navigation Physics
+    const magneticTargets = document.querySelectorAll('[data-magnetic]');
+    magneticTargets.forEach(target => {
+      target.addEventListener('mousemove', (e) => {
+        if (!motionActive) return;
+        const rect = target.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const deltaX = (e.clientX - centerX) * 0.3;
+        const deltaY = (e.clientY - centerY) * 0.3;
+
+        const maxDisplacement = 8;
+        const clampedX = Math.max(-maxDisplacement, Math.min(maxDisplacement, deltaX));
+        const clampedY = Math.max(-maxDisplacement, Math.min(maxDisplacement, deltaY));
+
+        target.style.transform = `translate3d(${clampedX}px, ${clampedY}px, 0)`;
+      }, { passive: true });
+
+      target.addEventListener('mouseleave', () => {
+        target.style.transform = 'translate3d(0, 0, 0)';
+      }, { passive: true });
+    });
+
+    // ==========================================================================
+    // SECTION INTERSECTION & MILESTONE HAPTICS
+    // ==========================================================================
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const seenSections = new Set();
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          const divider = entry.target.querySelector('.section-divider');
+          if (divider) divider.classList.add('is-drawn');
+
+          const currentId = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            if (link.getAttribute('href') === `#${currentId}`) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+
+          // Milestone tick on section enter
+          if (!seenSections.has(currentId)) {
+            seenSections.add(currentId);
+            triggerHaptic('tick');
+          }
+        }
+      });
+    }, {
+      rootMargin: '-10% 0px -40% 0px',
+      threshold: 0.1
+    });
+
+    sections.forEach(sec => sectionObserver.observe(sec));
+
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -30px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ==========================================================================
+    // INTERACTIVE SKILL-TO-PROJECT CROSS-FILTERING
+    // ==========================================================================
+    const skillPills = document.querySelectorAll('.skills-grid .pill[data-skill]');
+    const filterStatusText = document.getElementById('filter-status-text');
+    const resetFilterBtn = document.getElementById('reset-filter-btn');
+    const filterableCards = document.querySelectorAll('.card[data-skills]');
+
+    let activeSkill = null;
+
+    function applySkillFilter(skill) {
+      activeSkill = skill;
+
+      if (!skill) {
+        filterableCards.forEach(c => {
+          c.classList.remove('is-dimmed');
+          c.classList.remove('is-highlighted');
+        });
+        skillPills.forEach(p => p.classList.remove('is-active'));
+        if (filterStatusText) {
+          filterStatusText.innerHTML = '<span>FILTER MODE:</span> <strong>SHOWING ALL SYSTEMS</strong>';
+        }
+        return;
+      }
+
+      let matchCount = 0;
+      skillPills.forEach(p => {
+        if (p.getAttribute('data-skill') === skill) {
+          p.classList.add('is-active');
+        } else {
+          p.classList.remove('is-active');
+        }
+      });
+
+      filterableCards.forEach(c => {
+        const cardSkills = (c.getAttribute('data-skills') || '').toLowerCase().split(',');
+        if (cardSkills.includes(skill.toLowerCase())) {
+          c.classList.remove('is-dimmed');
+          c.classList.add('is-highlighted');
+          matchCount++;
+        } else {
+          c.classList.add('is-dimmed');
+          c.classList.remove('is-highlighted');
+        }
+      });
+
+      if (filterStatusText) {
+        filterStatusText.innerHTML = `<span>FILTERING:</span> <strong>${skill.toUpperCase()} — ${matchCount} SYSTEMS MATCHED</strong>`;
+      }
+    }
+
+    skillPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const skill = pill.getAttribute('data-skill');
+        if (activeSkill === skill) {
+          applySkillFilter(null);
+        } else {
+          applySkillFilter(skill);
+          triggerHaptic('medium');
+          const projectsSection = document.getElementById('projects');
+          if (projectsSection && window.scrollY > projectsSection.offsetTop + projectsSection.offsetHeight) {
+            projectsSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+
+    if (resetFilterBtn) {
+      resetFilterBtn.addEventListener('click', () => {
+        applySkillFilter(null);
+        triggerHaptic('selection');
+      });
+    }
+
+    // ==========================================================================
+    // 1-CLICK CLIPBOARD EMAIL COPY WITH TACTILE FEEDBACK
+    // ==========================================================================
+    const copyEmailBtn = document.getElementById('copy-email-btn');
+    const copyBtnText = document.getElementById('copy-btn-text');
+
+    async function copyEmailToClipboard() {
+      const email = 'mridul.mat@gmail.com';
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(email);
+        } else {
+          const textarea = document.createElement('textarea');
+          textarea.value = email;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+        }
+
+        triggerHaptic('confirm');
+        if (copyEmailBtn && copyBtnText) {
+          copyEmailBtn.classList.add('copied');
+          copyBtnText.textContent = 'COPIED TO CLIPBOARD ✓';
+          setTimeout(() => {
+            copyEmailBtn.classList.remove('copied');
+            copyBtnText.textContent = 'COPY EMAIL';
+          }, 2400);
+        }
+      } catch (err) {
+        if (copyBtnText) {
+          copyBtnText.textContent = 'FAILED TO COPY';
+          setTimeout(() => {
+            copyBtnText.textContent = 'COPY EMAIL';
+          }, 2000);
+        }
+      }
+    }
+
+    if (copyEmailBtn) {
+      copyEmailBtn.addEventListener('click', copyEmailToClipboard);
+    }
+
+    // ==========================================================================
+    // TEXT SCRAMBLE / DECODER GLYPH ENGINE
+    // ==========================================================================
+    const GLYPHS = '01#*$%&<>+~-/_アイウエオカキクケコサシスセソタチツテト';
+
+    function scrambleText(element, targetText, duration = 360, onComplete = null) {
+      if (!element) return;
+      const length = targetText.length;
+      let frame = 0;
+      const totalFrames = Math.max(12, Math.floor(duration / 25));
+      const queue = [];
+
+      for (let i = 0; i < length; i++) {
+        const from = element.textContent[i] || '';
+        const to = targetText[i];
+        const start = Math.floor(Math.random() * (totalFrames * 0.45));
+        const end = start + Math.floor(Math.random() * (totalFrames * 0.55));
+        queue.push({ from, to, start, end, char: '' });
+      }
+
+      let animId;
+      function update() {
+        let output = '';
+        let complete = 0;
+        for (let i = 0; i < length; i++) {
+          let { from, to, start, end, char } = queue[i];
+          if (to === ' ' || to === '\n') {
+            output += to;
+            complete++;
+          } else if (frame >= end) {
+            complete++;
+            output += to;
+          } else if (frame >= start) {
+            if (!char || Math.random() < 0.28) {
+              char = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+              queue[i].char = char;
+            }
+            output += char;
+          } else {
+            output += from;
+          }
+        }
+        element.textContent = output;
+        if (complete === length) {
+          element.textContent = targetText;
+          if (typeof onComplete === 'function') onComplete();
+        } else {
+          frame++;
+          animId = requestAnimationFrame(update);
+        }
+      }
+      cancelAnimationFrame(animId);
+      update();
+    }
+
+    function scrambleAsciiBlock(element, targetAscii) {
+      if (!element) return;
+      const lines = targetAscii.split('\n');
+      element.textContent = '';
+      let lineIdx = 0;
+      const timer = setInterval(() => {
+        if (lineIdx < lines.length) {
+          element.textContent += (lineIdx > 0 ? '\n' : '') + lines[lineIdx];
+          lineIdx++;
+        } else {
+          clearInterval(timer);
+        }
+      }, 16);
+    }
+
+    // Section headers text scramble on hover
+    document.querySelectorAll('section .section-header h2').forEach(h2 => {
+      const originalText = h2.textContent.trim();
+      h2.setAttribute('data-original-text', originalText);
+      let isScrambling = false;
+      h2.addEventListener('mouseenter', () => {
+        if (isScrambling) return;
+        isScrambling = true;
+        triggerHaptic('tick');
+        scrambleText(h2, originalText, 320, () => {
+          isScrambling = false;
+        });
+      });
+    });
+
+    // Wire up project card [TOPOLOGY] drawer toggles
+    document.querySelectorAll('.btn-topology').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const card = btn.closest('.card');
+        if (!card) return;
+        const drawer = card.querySelector('.card-topology-drawer');
+        const pre = card.querySelector('.topology-pre');
+        const icon = btn.querySelector('.btn-topo-icon');
+        if (!drawer || !pre) return;
+
+        const isOpen = drawer.classList.contains('is-open');
+        if (isOpen) {
+          drawer.classList.remove('is-open');
+          drawer.setAttribute('aria-hidden', 'true');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.classList.remove('is-active');
+          if (icon) icon.textContent = '[+]';
+          triggerHaptic('light');
+        } else {
+          drawer.classList.add('is-open');
+          drawer.setAttribute('aria-hidden', 'false');
+          btn.setAttribute('aria-expanded', 'true');
+          btn.classList.add('is-active');
+          if (icon) icon.textContent = '[-]';
+          triggerHaptic('snap');
+          const originalText = pre.getAttribute('data-original-text') || pre.textContent;
+          if (!pre.getAttribute('data-original-text')) {
+            pre.setAttribute('data-original-text', originalText);
+          }
+          scrambleAsciiBlock(pre, originalText);
+        }
+      });
+    });
+
+    // ==========================================================================
+    // DYNAMIC DATA PIPELINE (NO HARDCODING - EXTRACTED FROM LIVE DOM)
+    // ==========================================================================
+    function extractPortfolioManifest() {
+      const projects = Array.from(document.querySelectorAll('#projects-grid .card')).map(card => {
+        const titleEl = card.querySelector('h3');
+        const title = titleEl ? titleEl.innerText.trim() : '';
+        const id = title.toLowerCase().replace(/[^a-z0-9]/g, '-');
+        const category = card.querySelector('.card-category-tag')?.innerText.trim() || '';
+        const meta = card.querySelector('.card-meta')?.innerText.trim() || '';
+        const desc = card.querySelector('p')?.innerText.trim() || '';
+        const tags = Array.from(card.querySelectorAll('.tech-tag')).map(t => t.innerText.trim());
+        const link = card.querySelector('.card-link')?.getAttribute('href') || card.getAttribute('data-href') || '';
+        const topology = card.querySelector('.topology-pre')?.innerText.trim() || '';
+        const skills = (card.getAttribute('data-skills') || '').split(',').map(s => s.trim()).filter(Boolean);
+        return { id, title, category, meta, desc, tags, link, topology, skills };
+      });
+
+      const skills = Array.from(document.querySelectorAll('.skills-grid .pill')).map(p => ({
+        name: p.innerText.trim(),
+        id: p.getAttribute('data-skill') || p.innerText.trim().toLowerCase()
+      }));
+
+      const experience = Array.from(document.querySelectorAll('#experience .card')).map(card => ({
+        role: card.querySelector('h3')?.innerText.trim() || '',
+        category: card.querySelector('.card-category-tag')?.innerText.trim() || '',
+        meta: card.querySelector('.card-meta')?.innerText.trim() || '',
+        bullets: Array.from(card.querySelectorAll('.impact-list li')).map(li => li.innerText.trim()),
+        tags: Array.from(card.querySelectorAll('.tech-tag')).map(t => t.innerText.trim())
+      }));
+
+      const certs = Array.from(document.querySelectorAll('.cert-item')).map(item => ({
+        title: item.querySelector('strong')?.innerText.trim() || '',
+        issuer: item.querySelector('div div')?.innerText.trim() || '',
+        badge: item.querySelector('.cert-badge')?.innerText.trim() || ''
+      }));
+
+      return { projects, skills, experience, certs };
+    }
+
+    // ==========================================================================
+    // AUTHENTIC UNIX SYSTEMS TERMINAL ENGINE (Cmd+K / Ctrl+K)
+    // ==========================================================================
+    const termOverlay = document.getElementById('terminal-overlay');
+    const termBody = document.getElementById('terminal-body');
+    const termStream = document.getElementById('terminal-stream');
+    const termInput = document.getElementById('terminal-input');
+    const navCmdBtn = document.getElementById('nav-cmd-btn');
+    const heroCmdTrigger = document.getElementById('hero-cmd-trigger');
+
+    let isTermOpen = false;
+    let hasShownWelcome = false;
+    let previousActiveElement = null;
+
+    const cmdHistory = [];
+    let historyIndex = -1;
+
+    function scrollTerminalToBottom() {
+      if (termBody) {
+        termBody.scrollTop = termBody.scrollHeight;
+      }
+    }
+
+    function appendTerminalLine(text, className = '') {
+      if (!termStream) return null;
+      const line = document.createElement('div');
+      line.className = `terminal-line ${className}`;
+      line.textContent = text;
+      termStream.appendChild(line);
+      scrollTerminalToBottom();
+      return line;
+    }
+
+    function jumpToSection(selector) {
+      const el = document.querySelector(selector);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function openExternalUrl(url) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+
+    function executeTerminalCommand(rawCmd) {
+      const trimmed = (rawCmd || '').trim();
+      if (!trimmed) return;
+
+      cmdHistory.push(trimmed);
+      historyIndex = cmdHistory.length;
+
+      // Echo command line
+      const echoLine = document.createElement('div');
+      echoLine.className = 'terminal-line cmd-echo';
+      echoLine.innerHTML = `<span class="terminal-prompt-user">mridul@core:~$</span> <span>${escapeHtml(trimmed)}</span>`;
+      termStream.appendChild(echoLine);
+      scrollTerminalToBottom();
+      triggerHaptic('confirm');
+
+      const parts = trimmed.split(/\s+/);
+      const cmd = parts[0].toLowerCase();
+      const arg = parts.slice(1).join(' ').trim().toLowerCase();
+
+      const manifest = extractPortfolioManifest();
+
+      switch (cmd) {
+        case '--help':
+        case '-h':
+        case 'help':
+        case '?': {
+          const manual = 
+`MRIDUL SYSTEMS CORE CLI v2.4.0 (x86_64-pc-linux-gnu)
+
+OPERATIONAL COMMAND MANUAL:
+  --help, help           Display this operational manual
+  ls, projects           List all architected production systems
+  arch <project>         Render interactive ASCII architecture topology
+  inspect <project>      Display full system breakdown, stack & source
+  metrics, bench         Display verified empirical benchmarks & SLA metrics
+  research, isl          Display ACL 2024 multimodal benchmark replication study
+  vigil                  Display Amazon Vigil FastMCP edge defense mesh telemetry
+  skills, stack          Display core technologies and verified competencies
+  whoami, about          Display engineer telemetry, background & manifesto
+  exp, experience        List verified industry engineering chronology
+  certs                  List verified AWS & academic credentials
+  status                 Display candidate availability & academic cohort
+  hire, contact          Launch candidate recruitment telemetry & email dispatch
+  goto <section>         Scroll viewport to [about|projects|experience|certs|skills|contact]
+  resume, cv             Open verified single-page PDF engineering resume
+  theme                  Toggle light / dark monochrome color mode
+  audio                  Toggle synthetic acoustic telemetry engine
+  clear, cls             Purge terminal screen buffer
+  exit, q                Close terminal session`;
+          appendTerminalLine(manual);
+          break;
+        }
+
+        case 'ls':
+        case 'projects': {
+          let output = 'SYSTEM IDENTIFIER     DOMAIN / CLASSIFICATION               TECH STACK\n';
+          output += '---------------------------------------------------------------------------------\n';
+          manifest.projects.forEach(p => {
+            const padId = (p.id + '                     ').slice(0, 22);
+            const padCat = (p.category + '                                      ').slice(0, 38);
+            output += `${padId}${padCat}${p.tags.join(', ')}\n`;
+          });
+          output += '\nRun "arch <id>" for ASCII blueprint or "inspect <id>" for full system telemetry.';
+          appendTerminalLine(output);
+          break;
+        }
+
+        case 'arch':
+        case 'topology': {
+          if (!arg) {
+            appendTerminalLine('Error: project id required. Usage: arch <project-id>\nAvailable: arch aria | arch isl-multimodal | arch amazon-vigil | arch fixflow | arch apx-iq | arch infinitra-pipeline');
+            break;
+          }
+          const proj = manifest.projects.find(p => p.id === arg || p.id.includes(arg) || p.title.toLowerCase() === arg);
+          if (!proj) {
+            appendTerminalLine(`Error: Project "${arg}" not found. Run "ls" to view valid project identifiers.`);
+            break;
+          }
+          appendTerminalLine(`TOPOLOGY ARCHITECTURE BLUEPRINT: ${proj.title.toUpperCase()} [${proj.meta}]`, 'cmd-echo');
+          const topoLine = appendTerminalLine(proj.topology || '[No topology schema recorded]', 'topology-line');
+          if (topoLine && proj.topology) {
+            scrambleAsciiBlock(topoLine, proj.topology);
+          }
+          appendTerminalLine(`Tip: Expand [TOPOLOGY] button on the ${proj.title} card to view directly in viewport.`);
+          break;
+        }
+
+        case 'inspect':
+        case 'cat': {
+          if (!arg) {
+            appendTerminalLine('Error: project id required. Usage: inspect <project-id>\nExample: inspect aria | inspect fixflow');
+            break;
+          }
+          const proj = manifest.projects.find(p => p.id === arg || p.id.includes(arg) || p.title.toLowerCase() === arg);
+          if (!proj) {
+            appendTerminalLine(`Error: Project "${arg}" not found. Run "ls" to view valid identifiers.`);
+            break;
+          }
+          let out = `=======================================================\n`;
+          out += `SYSTEM:      ${proj.title}\n`;
+          out += `CATEGORY:    ${proj.category}\n`;
+          out += `SUBTITLE:    ${proj.meta}\n`;
+          out += `STACK:       ${proj.tags.join(' • ')}\n`;
+          out += `SOURCE:      ${proj.link}\n`;
+          out += `-------------------------------------------------------\n`;
+          out += `DESCRIPTION:\n${proj.desc}\n`;
+          out += `=======================================================`;
+          appendTerminalLine(out);
+          break;
+        }
+
+        case 'skills':
+        case 'stack': {
+          const skillNames = manifest.skills.map(s => s.name).join('  •  ');
+          appendTerminalLine(`CORE ENGINEERING STACK & SKILLS:\n${skillNames}`);
+          break;
+        }
+
+        case 'research':
+        case 'isl': {
+          appendTerminalLine(`STUDY: Continuous Indian Sign Language Translation & Retrieval Benchmarking
+SUPERVISOR: Prof. Navneet (SRMIST) · BENCHMARK: ACL 2024 iSign Replication
+MODELS: Meta NLLB-200, mBART-50, DWPose (RTMPose), SignCLIP (InfoNCE), AWS A10G
+RESULTS: 6.8x ROUGE-L gain (6.54 vs 0.96), +133% pose precision, 41.49% Top-5% 1-shot match.
+Run "arch isl-multimodal" for pipeline topology or "inspect isl-multimodal" for telemetry.`);
+          break;
+        }
+
+        case 'vigil': {
+          appendTerminalLine(`SYSTEM: Amazon Vigil · Autonomous Multi-Device Perimeter Defense Mesh
+TRACK: Amazon Developer Hackathon 2026 (Alexa+ & AWS Builder Challenges)
+CORE: FastMCP Streamable HTTP Server, AWS Bedrock (Claude 3.5 Sonnet), Ring WebRTC, HDMI-CEC
+TESTS: 150 automated tests passing · DMP Degraded Mode Protocol (DR-00 to DR-10).
+Run "arch amazon-vigil" for mesh topology or "inspect amazon-vigil" for telemetry.`);
+          break;
+        }
+
+        case 'metrics':
+        case 'bench':
+        case 'benchmarks': {
+          let out = 
+`EMPIRICAL ENGINEERING BENCHMARKS & VERIFIED METRICS:
+====================================================================================================
+SYSTEM         CORE BENCHMARK / SLA PARAMETER                      EMPIRICAL RESULT
+----------------------------------------------------------------------------------------------------
+ARIA           Root-Cause Attribution (vs 0.0% graph-blind base)   94.0% Accuracy
+ARIA           Unsafe Action Rate across 62-Test Chaos Battery     0.00% (Zero leaks)
+ARIA           Do-Nothing Correct Rate (Anti-Cascade Precision)    99.88%
+FixFlow        Cache Hit Response Latency (P95)                    10.1ms (exact) / 16.8ms (paraphrase)
+FixFlow        Hybrid BM25 Screen-Graph Mapping ($0.00 cost)       95.5% Accuracy
+FixFlow        Schema & Rule Compliance Test Suite                 100% (144/144 verified)
+FixFlow        Semantic Paraphrase Cache Hit Rate                  90.0%
+APX-IQ         Live EA Sports Telemetry Ingestion Rate             60 Hz (UDP Port 20777)
+APX-IQ         WebSocket React HUD State Push Cycle                < 16 ms
+APX-IQ         Telemetry Analytics & ML Modules                    8 Live Real-Time Engines
+infinitra      Nationwide Agricultural Ingestion Batch Scale       23,000+ Records / Batch
+infinitra      Coverage Scope across APMC Mandis                   1,289 Mandis across 27 States
+infinitra      Time-Series Commodity Volatility Indices            234 Indices Calculated
+infinitra      PostgreSQL Time-Series Query Latency                Sub-200ms B-Tree Indexed
+ISL-Research   Meta NLLB-200 / mBART-50 vs English T5 Baseline     6.8x ROUGE-L Gain (6.54 vs 0.96)
+ISL-Research   Whole-Body DWPose 133-Point Landmark Precision      +133% vs MediaPipe Baseline
+ISL-Research   SignCLIP InfoNCE 1-Shot Retrieval (4,765 Classes)   41.49% Top-5% SOTA Match
+Amazon Vigil   System 1 Edge Reflex Latency (Zero-Cloud Fallback)  < 50 ms Actuation
+Amazon Vigil   Echo Boot-Bridge Acoustic Deterrence Bluff Latency  150 ms Footstep Trigger
+Amazon Vigil   Full Integration & Scenario Test Battery            150 Passing Tests (Offline)
+====================================================================================================`;
+          appendTerminalLine(out);
+          break;
+        }
+
+        case 'status': {
+          let out = 
+`CURRENT TELEMETRY STATUS:
+• STATUS:       AVAILABLE FOR SWE ROLES & INTERNSHIPS (CLASS OF 2028)
+• ACADEMIA:     B.Tech in CSE (AI & ML) · SRMIST · CGPA: 8.53 (2024–2028)
+• INDUSTRY:     Intern – Full Stack AWS Cloud @ Infinitra Innovations
+• LEADERSHIP:   Associate @ AWS Student Builder Group · Lead @ CINTEL App Dev
+• FOCUS:        Distributed Backends, Cloud-Native AWS, Real-Time Telemetry, Agentic Graphs
+• LOCATION:     Bengaluru / Chennai, India`;
+          appendTerminalLine(out);
+          break;
+        }
+
+        case 'hire':
+        case 'contact':
+        case 'reach': {
+          let out = 
+`CANDIDATE RECRUITMENT TELEMETRY:
+=======================================================
+NAME:         Mridul Mathur
+ROLE:         AI & Systems Architecture Engineer
+COHORT:       Class of 2028 · B.Tech CSE (AI & ML) @ SRMIST
+CURRENT:      Intern – Full Stack AWS Cloud @ Infinitra Innovations
+AVAILABILITY: Summer 2026/2027 SWE Internships & Remote Part-Time
+LOCATIONS:    Bengaluru / Chennai, India (Open to Remote & Relocation)
+EMAIL:        mridul.mat@gmail.com
+LINKEDIN:     https://www.linkedin.com/in/matmridul/
+GITHUB:       https://github.com/MatMridul
+RESUME:       Run "resume" or download ./Mridul_Mathur_Resume.pdf
+=======================================================
+Dispatched: Launching email client for direct transmission...`;
+          appendTerminalLine(out, 'cmd-echo');
+          openExternalUrl('mailto:mridul.mat@gmail.com');
+          break;
+        }
+
+        case 'whoami':
+        case 'about': {
+          appendTerminalLine(
+`ENGINEER TELEMETRY:
+NAME:      Mridul Mathur
+ROLE:      AI & Systems Architecture Engineer
+AFFIL:     SRM Institute of Science & Technology · Intern @ Infinitra Innovations
+SPECIALTY: Cloud-Native Distributed Systems, Agentic LLM Graphs, Real-Time Telemetry
+EMAIL:     mridul.mat@gmail.com
+GITHUB:    https://github.com/MatMridul
+LINKEDIN:  https://www.linkedin.com/in/matmridul/`
+          );
+          break;
+        }
+
+        case 'exp':
+        case 'experience': {
+          let out = 'PROFESSIONAL CHRONOLOGY:\n-------------------------------------------------------\n';
+          manifest.experience.forEach(exp => {
+            out += `[${exp.category}] ${exp.role} (${exp.meta})\n`;
+            exp.bullets.forEach(b => {
+              out += `  • ${b}\n`;
+            });
+            out += '\n';
+          });
+          appendTerminalLine(out.trim());
+          break;
+        }
+
+        case 'certs': {
+          let out = 'VERIFIED CREDENTIALS & CERTIFICATIONS:\n-------------------------------------------------------\n';
+          manifest.certs.forEach(c => {
+            out += `• [${c.badge}] ${c.title} — ${c.issuer}\n`;
+          });
+          appendTerminalLine(out.trim());
+          break;
+        }
+
+        case 'goto':
+        case 'cd': {
+          const target = arg.replace(/^#/, '');
+          const valid = ['about', 'projects', 'experience', 'certifications', 'certs', 'skills', 'contact'];
+          const mapped = target === 'certs' ? 'certifications' : target;
+          if (valid.includes(target)) {
+            jumpToSection(`#${mapped}`);
+            closeTerminal();
+          } else {
+            appendTerminalLine(`Unknown target. Valid sections: about, projects, experience, certs, skills, contact`);
+          }
+          break;
+        }
+
+        case 'resume':
+        case 'cv': {
+          appendTerminalLine('Dispatched: Opening Mridul_Mathur_Resume.pdf in external viewer...', 'cmd-echo');
+          openExternalUrl('./Mridul_Mathur_Resume.pdf');
+          break;
+        }
+
+        case 'theme': {
+          toggleTheme();
+          appendTerminalLine(`Color mode toggled.`);
+          break;
+        }
+
+        case 'audio': {
+          toggleAudio();
+          appendTerminalLine(`Acoustic telemetry feedback toggled.`);
+          break;
+        }
+
+        case 'clear':
+        case 'cls': {
+          if (termStream) termStream.innerHTML = '';
+          break;
+        }
+
+        case 'exit':
+        case 'quit':
+        case 'q': {
+          closeTerminal();
+          break;
+        }
+
+        default: {
+          appendTerminalLine(`Command not recognized: "${trimmed}". Type "--help" to list available commands.`);
+          break;
+        }
+      }
+
+      if (termInput) {
+        termInput.value = '';
+      }
+      scrollTerminalToBottom();
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function openTerminal() {
+      if (isTermOpen) return;
+      isTermOpen = true;
+      previousActiveElement = document.activeElement;
+
+      termOverlay.removeAttribute('inert');
+      termOverlay.setAttribute('aria-hidden', 'false');
+      termOverlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+
+      if (termInput) {
+        termInput.removeAttribute('disabled');
+        termInput.value = '';
+        setTimeout(() => termInput.focus(), 60);
+      }
+      triggerHaptic('snap');
+
+      // First time welcome banner
+      if (!hasShownWelcome && termStream) {
+        hasShownWelcome = true;
+        const banner = 
+`MRIDUL SYSTEMS CORE CLI v2.4.0 (x86_64-pc-linux-gnu)
+Welcome to Mridul Mathur's Systems Terminal.
+Type "--help" to list available commands.`;
+        const line = appendTerminalLine(banner, 'cmd-echo');
+        if (line) {
+          scrambleText(line, banner, 400);
+        }
+      }
+      scrollTerminalToBottom();
+    }
+
+    function closeTerminal() {
+      if (!isTermOpen) return;
+      isTermOpen = false;
+
+      termOverlay.classList.remove('is-open');
+      termOverlay.setAttribute('aria-hidden', 'true');
+      termOverlay.setAttribute('inert', '');
+      if (termInput) termInput.setAttribute('disabled', 'true');
+      document.body.style.overflow = '';
+
+      if (previousActiveElement && typeof previousActiveElement.focus === 'function') {
+        previousActiveElement.focus();
+      }
+      triggerHaptic('light');
+    }
+
+    if (navCmdBtn) {
+      navCmdBtn.addEventListener('click', openTerminal);
+    }
+
+    if (heroCmdTrigger) {
+      heroCmdTrigger.addEventListener('click', openTerminal);
+    }
+
+    if (termOverlay) {
+      termOverlay.addEventListener('click', (e) => {
+        if (e.target === termOverlay || e.target.classList.contains('terminal-backdrop')) {
+          closeTerminal();
+        }
+      });
+    }
+
+    if (termBody) {
+      termBody.addEventListener('click', () => {
+        if (termInput) termInput.focus();
+      });
+    }
+
+    if (termInput) {
+      termInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          executeTerminalCommand(termInput.value);
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          if (cmdHistory.length > 0) {
+            if (historyIndex === -1) historyIndex = cmdHistory.length;
+            if (historyIndex > 0) {
+              historyIndex--;
+              termInput.value = cmdHistory[historyIndex] || '';
+              triggerHaptic('tick');
+            }
+          }
+        } else if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (historyIndex < cmdHistory.length - 1) {
+            historyIndex++;
+            termInput.value = cmdHistory[historyIndex] || '';
+            triggerHaptic('tick');
+          } else {
+            historyIndex = cmdHistory.length;
+            termInput.value = '';
+          }
+        } else if (e.key === 'Escape') {
+          e.preventDefault();
+          closeTerminal();
+        }
+      });
+    }
+
+    // Global Keyboard Shortcuts
+    window.addEventListener('keydown', (e) => {
+      // 1. Cmd+K / Ctrl+K opens Terminal
+      if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) {
+        e.preventDefault();
+        if (isTermOpen) {
+          closeTerminal();
+        } else {
+          openTerminal();
+        }
+        return;
+      }
+
+      // 2. Escape closes Terminal if open
+      if (e.key === 'Escape' && isTermOpen) {
+        e.preventDefault();
+        closeTerminal();
+        return;
+      }
+
+      // 3. Quick letter hotkeys when not typing in form inputs
+      if (document.activeElement && ['input', 'textarea'].includes(document.activeElement.tagName.toLowerCase())) {
+        return;
+      }
+
+      if (e.key === 't' || e.key === 'T') {
+        toggleTheme();
+      } else if (e.key === 'a' || e.key === 'A') {
+        toggleAudio();
+      } else if (e.key === 'c' || e.key === 'C') {
+        copyEmailToClipboard();
+      }
+    });
+  </script>
+
+</body>
+</html>
