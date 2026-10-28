@@ -252,6 +252,12 @@
       opacity: 0 !important;
     }
 
+    @media (hover: none), (pointer: coarse) {
+      .cursor-ring {
+        display: none !important;
+      }
+    }
+
     [data-magnetic] {
       display: inline-block;
       transition: transform var(--duration-interaction) var(--ease-out-expo);
@@ -275,12 +281,6 @@
       margin: 0 auto;
       padding: 0 32px;
       box-sizing: border-box;
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 18px;
-      }
     }
 
     /* Header & Navigation */
@@ -587,34 +587,6 @@
     .mobile-menu-action-btn.btn-resume {
       background: var(--bg-subtle);
       color: var(--fg-primary);
-    }
-
-    @media (max-width: 768px) {
-      .brand-subtitle {
-        display: none;
-      }
-      .nav-links {
-        display: none; /* Relocated cleanly to mobile drawer */
-      }
-      .nav-cmd-btn {
-        display: none; /* Relocated to mobile drawer + hero action */
-      }
-      .nav-menu-btn {
-        display: inline-flex;
-      }
-      .nav-resume-btn {
-        padding: 0 10px;
-        font-size: 0.74rem;
-      }
-      .nav-resume-btn .nav-resume-label-full {
-        display: none;
-      }
-      .nav-resume-btn .nav-resume-label-short {
-        display: inline;
-      }
-      .nav-controls-group {
-        gap: 8px;
-      }
     }
 
     @media (min-width: 769px) {
@@ -971,36 +943,6 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 32px;
-    }
-
-    @media (max-width: 768px) {
-      .grid {
-        grid-template-columns: minmax(0, 1fr) !important;
-        gap: 20px;
-      }
-      .card {
-        min-width: 0 !important;
-        max-width: 100%;
-        padding: 24px 18px !important;
-      }
-      .card-footer-action {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-      }
-      .btn-topology,
-      .card-link-action {
-        width: 100%;
-        justify-content: center;
-        min-height: 42px;
-      }
-      .topology-pre {
-        font-size: 0.62rem !important;
-        padding: 10px 12px !important;
-        max-width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-      }
     }
 
     /* Cards Architecture */
@@ -1558,23 +1500,6 @@
       gap: 6px;
     }
 
-    @media (max-width: 768px) {
-      .hero-cmd-trigger {
-        width: 100%;
-        justify-content: center;
-        padding: 12px 14px;
-        min-height: 48px;
-      }
-      .hero-cmd-trigger .desktop-cmd-text {
-        display: none;
-      }
-      .hero-cmd-trigger .mobile-cmd-text {
-        display: inline;
-        font-weight: 600;
-        letter-spacing: 0.03em;
-      }
-    }
-
     .hero-cmd-trigger:hover {
       background: var(--fg-primary);
       color: var(--bg-primary);
@@ -1935,91 +1860,6 @@
       background: var(--fg-primary);
       color: var(--bg-primary);
       border-color: var(--fg-primary);
-    }
-
-    @media (max-width: 768px) {
-      .terminal-overlay {
-        padding: 0;
-      }
-      .terminal-window {
-        width: 100vw;
-        height: 100%;
-        max-width: 100vw;
-        max-height: 100%;
-        border: none;
-        box-shadow: none;
-      }
-      .terminal-body {
-        height: auto;
-        flex: 1;
-        max-height: none;
-        padding: 12px 14px;
-        font-size: 0.78rem;
-      }
-      .terminal-footer {
-        display: none; /* Hide desktop shortcuts hint on phones */
-      }
-      .hero-section {
-        min-height: auto;
-        padding: 24px 0 28px 0;
-      }
-      .hero-telemetry {
-        margin-bottom: 24px;
-        padding: 8px 12px;
-        gap: 12px;
-      }
-      .hero-headline {
-        font-size: clamp(2.1rem, 9.2vw, 3.2rem) !important;
-        line-height: 1.02 !important;
-        margin-bottom: 18px !important;
-      }
-      .hero-btn-cluster {
-        flex-direction: column;
-        width: 100%;
-        gap: 10px;
-      }
-      .btn-action {
-        width: 100%;
-      }
-      section {
-        padding: 56px 0 !important;
-      }
-      .section-header {
-        margin-bottom: 30px !important;
-      }
-      h2 {
-        font-size: clamp(1.6rem, 6vw, 2.2rem) !important;
-      }
-      .cert-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 16px 18px;
-        min-height: auto;
-      }
-      .cert-badge-group {
-        width: 100%;
-        justify-content: space-between;
-      }
-      .contact-card-box {
-        padding: 22px 18px;
-      }
-      .contact-email-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .copy-btn {
-        width: 100%;
-        justify-content: center;
-      }
-      footer {
-        padding: 36px 0;
-      }
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
     }
 
     .terminal-hints {
