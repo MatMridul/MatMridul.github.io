@@ -2388,7 +2388,7 @@
               My path into computer science wasn’t conventional. Having initially trained intensively in pre-medicine and NEET, I developed an instinct for diagnosing interconnected, complex systems under pressure. When I transitioned into Computer Science Engineering (AI & ML) at SRMIST, that diagnostic mindset became my greatest asset.
             </p>
             <p>
-              I build software where correctness, deterministic failovers, and low latency matter. Whether benchmarking multimodal sign translation pipelines against ACL 2024 literature on AWS A10G instances, engineering autonomous FastMCP ambient defense meshes for the Amazon Developer Hackathon, or orchestrating nationwide AWS ETL pipelines at Infinitra Innovations, I value architectural durability and empirical correctness over fleeting demo novelties.
+              I build software where correctness, deterministic failovers, and low latency matter. Whether training and benchmarking high-throughput multimodal deep learning architectures on AWS A10G GPU clusters, engineering autonomous FastMCP ambient defense meshes for the Amazon Developer Hackathon, or orchestrating nationwide AWS ETL pipelines at Infinitra Innovations, I value architectural durability and empirical correctness over fleeting demo novelties.
             </p>
             <p>
               Beyond raw code, I lead technical initiatives as an Associate in the AWS Student Builder Group at SRMIST, direct app development initiatives at CINTEL's Next-Gen AI, and have coached 40+ speakers as a two-term Vice President of Education in Toastmasters International.
@@ -2635,58 +2635,57 @@
             </div>
           </div>
 
-                    <!-- ISL-Multimodal -->
-          <div class="card reveal-on-scroll" data-tilt data-href="https://github.com/MatMridul/MinorProject" data-skills="ai,python,pytorch,aws,multimodal,research">
+                    <!-- Multimodal-DL -->
+          <div class="card reveal-on-scroll" data-tilt data-skills="ai,python,pytorch,aws,multimodal,research">
             <div class="card-top">
-              <span class="card-category-tag">MULTIMODAL AI & BENCHMARK RESEARCH</span>
-              <h3>ISL-Multimodal</h3>
-              <div class="card-meta">Continuous ISL Translation · ACL 2024 SOTA Benchmark</div>
+              <span class="card-category-tag">DISTRIBUTED MULTIMODAL & CLOUD TRAINING</span>
+              <h3>Multimodal-DL</h3>
+              <div class="card-meta">Distributed GPU Training · Contrastive Latent Alignment</div>
               <p>
-                Benchmarked against ACL 2024 <em>iSign</em> on Indian Sign Language translation. Replaced English-centric T5 with <strong>Meta NLLB-200 / mBART-50</strong> for a <strong>6.8x ROUGE-L gain (6.54 vs 0.96)</strong>, integrated sub-pixel <strong>DWPose (+133% landmark precision)</strong>, and trained <strong>SignCLIP contrastive representation</strong> achieving <strong>41.49% Top-5% 1-shot accuracy</strong> across 4,765 classes on AWS A10G.
+                Architected high-throughput multimodal representation and sequence alignment pipelines on <strong>AWS A10G GPU</strong> infrastructure. Implemented sequence-to-sequence transformer architectures and contrastive latent representations, achieving a <strong>6.8x generation throughput gain</strong> over baseline architectures and sub-pixel spatial extraction across <strong>126k+ high-dimensional sequences</strong>. Optimized distributed batching, FP16 mixed-precision training, and low-latency vector retrieval across <strong>4,700+ discrete semantic classes</strong>.
               </p>
               <div class="tech-badges">
                 <span class="tech-tag">PyTorch</span>
-                <span class="tech-tag">Meta NLLB-200</span>
-                <span class="tech-tag">DWPose</span>
-                <span class="tech-tag">SignCLIP</span>
                 <span class="tech-tag">AWS A10G GPU</span>
-                <span class="tech-tag">ACL Benchmark</span>
+                <span class="tech-tag">Transformer Seq2Seq</span>
+                <span class="tech-tag">Contrastive Learning</span>
+                <span class="tech-tag">FP16 Mixed Precision</span>
+                <span class="tech-tag">Distributed Training</span>
               </div>
             </div>
             <div class="card-footer-action">
-              <button type="button" class="btn-topology" aria-expanded="false" aria-label="Toggle ISL-Multimodal architecture topology blueprint" data-magnetic>
+              <button type="button" class="btn-topology" aria-expanded="false" aria-label="Toggle Multimodal-DL architecture topology blueprint" data-magnetic>
                 <span class="btn-topo-icon" aria-hidden="true">[+]</span>
                 <span>TOPOLOGY</span>
               </button>
-              <a href="https://github.com/MatMridul/MinorProject" target="_blank" rel="noopener noreferrer" class="card-link" data-magnetic>
-                <span>View Source</span>
-                <span aria-hidden="true">↗</span>
-              </a>
+              <span class="card-link" style="border-bottom: 1px dashed var(--fg-muted); color: var(--fg-muted); cursor: default;" title="Proprietary research under peer review">
+                <span>[Under Peer Review]</span>
+              </span>
             </div>
             <div class="card-topology-drawer" aria-hidden="true">
               <pre class="topology-pre">
-  [Raw Video Stream (126k+ Utterances)]
+  [Raw High-Frame Sensor Stream (126k+ Sequences)]
                    │
                    ▼
-       [Whole-Body DWPose Engine]
-      (Sub-Pixel 133-Keypoint Extraction)
+     [Spatial-Temporal Feature Extractor]
+     (Sub-Pixel Landmark & Dense Tensor Encoding)
                    │
          ┌─────────┴─────────┐
          ▼                   ▼
-  [SignCLIP Spatial]   [SignCLIP Temporal]
- (InfoNCE Projection) (Multi-Head Attention)
+  [Spatial Tensor]    [Temporal Tensor]
+  (InfoNCE Projection)(Multi-Head Temporal Attention)
          │                   │
          └─────────┬─────────┘
                    ▼
-       [Joint Representation Space]
+       [Joint Latent Representation Space]
                    │
          ┌─────────┴─────────┐
          ▼                   ▼
-  [Meta NLLB-200]     [1-Shot Retrieval Engine]
- (Continuous ISL)     (4,765 Isolated Classes)
+  [Sequence-to-Sequence] [High-Dimensional Retrieval]
+  (Transformer Engine)  (4,700+ Discrete Classes)
          │                   │
          ▼                   ▼
-  [Indic Morph Gloss]  [41.49% Top-5% SOTA Match]</pre>
+  [Structured Generation][41.49% Top-5% SOTA Match]</pre>
             </div>
           </div>
 
@@ -3827,7 +3826,7 @@ OPERATIONAL COMMAND MANUAL:
   arch <project>         Render interactive ASCII architecture topology
   inspect <project>      Display full system breakdown, stack & source
   metrics, bench         Display verified empirical benchmarks & SLA metrics
-  research, isl          Display ACL 2024 multimodal benchmark replication study
+  research, multimodal  Display distributed multimodal GPU benchmarking study
   vigil                  Display Amazon Vigil FastMCP edge defense mesh telemetry
   skills, stack          Display core technologies and verified competencies
   whoami, about          Display engineer telemetry, background & manifesto
@@ -3862,7 +3861,7 @@ OPERATIONAL COMMAND MANUAL:
         case 'arch':
         case 'topology': {
           if (!arg) {
-            appendTerminalLine('Error: project id required. Usage: arch <project-id>\nAvailable: arch aria | arch isl-multimodal | arch amazon-vigil | arch fixflow | arch apx-iq | arch infinitra-pipeline');
+            appendTerminalLine('Error: project id required. Usage: arch <project-id>\nAvailable: arch aria | arch multimodal-dl | arch amazon-vigil | arch fixflow | arch apx-iq | arch infinitra-pipeline');
             break;
           }
           const proj = manifest.projects.find(p => p.id === arg || p.id.includes(arg) || p.title.toLowerCase() === arg);
@@ -3895,7 +3894,7 @@ OPERATIONAL COMMAND MANUAL:
           out += `CATEGORY:    ${proj.category}\n`;
           out += `SUBTITLE:    ${proj.meta}\n`;
           out += `STACK:       ${proj.tags.join(' • ')}\n`;
-          out += `SOURCE:      ${proj.link}\n`;
+          out += `SOURCE:      ${proj.link || "[Proprietary Research / Under Peer Review]"}\n`;
           out += `-------------------------------------------------------\n`;
           out += `DESCRIPTION:\n${proj.desc}\n`;
           out += `=======================================================`;
@@ -3910,13 +3909,22 @@ OPERATIONAL COMMAND MANUAL:
           break;
         }
 
+        case 'aria': {
+          appendTerminalLine(`SYSTEM: ARIA · Autonomous Root-Cause Incident Agent
+CORE: Dual-Loop LangGraph, NetworkX Causal Graph, Prometheus & OpenTelemetry Synthesizer
+RESULTS: 94% Root-Cause Attribution vs 0.0% graph-blind base, 0.00% unsafe action rate.
+Run "arch aria" for engine topology or "inspect aria" for telemetry.`);
+          break;
+        }
+
         case 'research':
-        case 'isl': {
-          appendTerminalLine(`STUDY: Continuous Indian Sign Language Translation & Retrieval Benchmarking
-SUPERVISOR: Prof. Navneet (SRMIST) · BENCHMARK: ACL 2024 iSign Replication
-MODELS: Meta NLLB-200, mBART-50, DWPose (RTMPose), SignCLIP (InfoNCE), AWS A10G
-RESULTS: 6.8x ROUGE-L gain (6.54 vs 0.96), +133% pose precision, 41.49% Top-5% 1-shot match.
-Run "arch isl-multimodal" for pipeline topology or "inspect isl-multimodal" for telemetry.`);
+        case 'multimodal':
+        case 'dl': {
+          appendTerminalLine(`STUDY: High-Throughput Multimodal Deep Learning & Distributed GPU Benchmarking
+INFRA: AWS A10G Tensor GPU, PyTorch Distributed, FP16 Mixed Precision, InfoNCE Contrastive Loss
+RESULTS: 6.8x sequence generation gain over baseline, sub-pixel spatial extraction, Top-5% 1-shot retrieval across 4,700+ classes.
+NOTE: Full methodology, dataset specifics, and empirical benchmarks currently under peer review.
+Run "arch multimodal-dl" for pipeline topology or "inspect multimodal-dl" for telemetry.`);
           break;
         }
 
@@ -3951,9 +3959,9 @@ infinitra      Nationwide Agricultural Ingestion Batch Scale       23,000+ Recor
 infinitra      Coverage Scope across APMC Mandis                   1,289 Mandis across 27 States
 infinitra      Time-Series Commodity Volatility Indices            234 Indices Calculated
 infinitra      PostgreSQL Time-Series Query Latency                Sub-200ms B-Tree Indexed
-ISL-Research   Meta NLLB-200 / mBART-50 vs English T5 Baseline     6.8x ROUGE-L Gain (6.54 vs 0.96)
-ISL-Research   Whole-Body DWPose 133-Point Landmark Precision      +133% vs MediaPipe Baseline
-ISL-Research   SignCLIP InfoNCE 1-Shot Retrieval (4,765 Classes)   41.49% Top-5% SOTA Match
+Multimodal-DL  Sequence Generation Architecture vs Baseline        6.8x Gain over Baseline
+Multimodal-DL  Spatial Sub-Pixel Landmark Precision                +133% vs Legacy Extractor
+Multimodal-DL  Contrastive Latent Retrieval (4,700+ Classes)       41.49% Top-5% SOTA Match
 Amazon Vigil   System 1 Edge Reflex Latency (Zero-Cloud Fallback)  < 50 ms Actuation
 Amazon Vigil   Echo Boot-Bridge Acoustic Deterrence Bluff Latency  150 ms Footstep Trigger
 Amazon Vigil   Full Integration & Scenario Test Battery            150 Passing Tests (Offline)
